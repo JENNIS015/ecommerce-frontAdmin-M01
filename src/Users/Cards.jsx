@@ -10,8 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 300,
     margin: "auto",
+
     transition: "0.3s",
     boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {
@@ -20,27 +20,20 @@ const useStyles = makeStyles((theme) => ({
   },
 
   content: {
-    textAlign: "left",
     padding: "10px",
+    display: "flex",
   },
   divider: {
     margin: `3px 0`,
   },
-  heading: {
+  title: {
     fontWeight: "bold",
   },
-  subheading: {
-    lineHeight: 1.8,
+  heading: {
+    width: "50%",
   },
-  logo: {
-    width: 48,
-    height: 48,
-    borderRadius: "0.75rem",
-  },
-  avatar: {
-    fontFamily: "Ubuntu",
-    fontSize: "0.875rem",
-    backgroundColor: "#6d7efc",
+  btn: {
+    marginTop: "20px",
   },
 }));
 
@@ -50,42 +43,46 @@ export default function Cards({ item, deleteProp }) {
     <div>
       <Card className={classes.card} key={item.id}>
         <CardContent className={classes.content}>
-          <Box p={2} gap={2}>
-            <Avatar
-              className={classes.logo}
-              variant={"rounded"}
-              src={item.avatar}
-            />
-
-            <Typography variant="h5">
+          <Box p={2} gap={2} className={classes.heading}>
+            <Typography gutterBottom variant="h5" component="h2">
               {item.name + "" + item.lastName}
             </Typography>
+            <Divider className={classes.divider} light />
             <Typography>
               {item.membershipID !== 1 ? "Comprador" : "Administrador"}
             </Typography>
           </Box>
-          <Box
-            pb={1}
-            px={2}
-            color={"grey.600"}
-            fontSize={"0.875rem"}
-            fontFamily={"Ubuntu"}
-          >
-            <Typography> {item.email}</Typography>
-            <Typography>{item.address}</Typography>
 
-            <Typography>{item.phone}</Typography>
+          <Box pb={1} px={2}>
+            <Typography>
+              <span>Email: </span>
+              {item.email}
+            </Typography>
+            {item.address ? (
+              <Typography>
+                (<span>Dirección: </span>
+                {item.address}
+              </Typography>
+            ) : (
+              ""
+            )}
+            {item.phone ? (
+              <Typography>
+                <span>Contacto: </span>
+                {item.phone}
+              </Typography>
+            ) : (
+              ""
+            )}
+            <Button
+              variant={"contained"}
+              className={classes.btn}
+              onClick={deleteProp}
+              disableRipple
+            >
+              Eliminar
+            </Button>
           </Box>
-
-          <Divider className={classes.divider} light />
-          <Button
-            variant={"contained"}
-            onClick={deleteProp}
-            color={"primary"}
-            disableRipple
-          >
-            Eliminar
-          </Button>
         </CardContent>
       </Card>
     </div>

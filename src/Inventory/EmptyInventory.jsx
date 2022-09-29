@@ -29,10 +29,10 @@ export default function EmptyInventory() {
           className={classes.bold}
           gutterBottom
         >
-          Inventory is empty.
+       No hay productos
         </Typography>
         <Typography variant="subtitle1" align="center" gutterBottom>
-          Create New Product to add new items to Inventory.
+       Crea un nuevo producto para subir a tu sitio.
         </Typography>
       </Container>
     </Container>

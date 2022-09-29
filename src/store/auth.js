@@ -127,6 +127,7 @@ export function resetPassword(dataObj) {
       url: `${urlApi}/forgot`,
       data: { email: dataObj },
       contentType: "application/json",
+      withCredentials: true,
     })
       .then((res) => dispatch(setValidEmail()))
       .catch((error) => {
@@ -147,11 +148,13 @@ export function verifyToken(id, creds) {
     await axios({
       method: "get",
       url: `${urlApi}/reset/${id}`,
+      withCredentials: true,
     })
       .then(
         async (res) =>
           await axios({
             method: "post",
+            withCredentials: true,
             url: `${urlApi}/reset/${id}`,
             data: { password: creds.password, confirm: creds.verify },
           }),
@@ -175,6 +178,7 @@ export async function updateUser(userId, dataObj) {
     method: "put",
     url: `${urlApi}/profile/${userId}`,
     data: dataObj,
+    withCredentials: true,
   })
     .then(function (response) {})
     .catch(function (response) {
@@ -184,16 +188,20 @@ export async function updateUser(userId, dataObj) {
 }
 
 export const getUser = async (userId) => {
-  let response = await axios.get(`${urlApi}/profile/${userId}`);
+  let response = await axios.get(`${urlApi}/profile/${userId}`, {
+    withCredentials: true,
+  });
   return response.data.data;
 };
 
 export const getAllUser = async () => {
-  let response = await axios.get(`${urlApi}/users`);
+  let response = await axios.get(`${urlApi}/users`, { withCredentials: true });
   return response.data.users;
 };
 
 export const deleteUser = async (userId) => {
-  let response = await axios.delete(`${urlApi}/user/${userId}`);
+  let response = await axios.delete(`${urlApi}/user/${userId}`, {
+    withCredentials: true,
+  });
   return response;
 };

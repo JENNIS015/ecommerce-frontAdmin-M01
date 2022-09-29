@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   card: {
-    maxWidth: 345,
+   
+ 
     boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
     boxShadow:
       "0 0.938em 1.588em rgba(50,50,93,.1), 0 0.313em 0.938em rgba(0,0,0,.07)",
@@ -28,15 +29,17 @@ const useStyles = makeStyles((theme) => ({
   media: {
     userSelect: "none",
     pointerEvents: "none",
+    maxHeight:"300px",
+    maxWidth:"400px"
   },
 }));
 
 function Home() {
   const classes = useStyles();
-console.log(data);
+  console.log(data);
   return (
     <Container className={classes.container} maxWidth="lg">
-      <Grid container spacing={2} columns={2}>
+      <Grid container spacing={2} columns={1}>
         {data.map((item) => (
           <Grid key={item.title} item xs={12} sm={6}>
             <Card className={classes.card}>
@@ -59,7 +62,7 @@ console.log(data);
                 <Button
                   size="small"
                   color="primary"
-                   component={Link}
+                  component={Link}
                   to={item.route}
                 >
                   {item.button}

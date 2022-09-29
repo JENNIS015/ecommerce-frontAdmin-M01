@@ -30,7 +30,9 @@ export function fetchProducts() {
   return async (dispatch) => {
     try {
       dispatch(fetchProductsPending());
-      const res = await axios.get(`${urlApi}/api/productos`);
+      const res = await axios.get(`${urlApi}/api/productos`, {
+        withCredentials: true,
+      });
       if (res.data && res.status === 200) {
         dispatch(fetchProductsSuccess(res.data.product));
       }
@@ -47,6 +49,7 @@ export async function saveProduct(formData, setFormData, handleReset) {
     url: `${urlApi}/api/productos`,
     data: formData,
     headers: { "content-type": "multipart/form-data" },
+    withCredentials: true,
   })
     .then(function (response) {})
     .catch(function (response) {
@@ -78,6 +81,7 @@ export async function deleteProduct(productID) {
   return await axios({
     method: "delete",
     url: `${urlApi}/api/productos/${productID}`,
+    withCredentials: true,
   })
     .then(function (response) {
       //handle success
@@ -94,6 +98,7 @@ export async function updateProduct(productID, dataObj) {
     method: "put",
     url: `${urlApi}/api/productos/${productID}`,
     data: dataObj,
+    withCredentials: true,
     headers: { "content-type": "multipart/form-data" },
   })
     .then(function (response) {})
@@ -108,6 +113,7 @@ export async function deletePic(productID, dataObj) {
     method: "put",
     url: `${urlApi}/api/productos/imagen/${productID}`,
     data: dataObj,
+    withCredentials: true,
   })
     .then(function (response) {})
     .catch(function (response) {
@@ -120,6 +126,7 @@ export async function fetchOrders() {
   return await axios({
     method: "get",
     url: `${urlApi}/api/pedido`,
+    withCredentials: true,
   });
 }
 
@@ -128,14 +135,16 @@ export async function updateOrder(formData) {
     method: "put",
     url: `${urlApi}/api/pedido/${formData._id}`,
     data: formData,
-    //  headers: { "content-type": "multipart/form-data" },
-  }) ;
+    withCredentials: true,
+    
+  });
 }
 
 export async function deleteOrderNumber(number) {
   return await axios({
     method: "delete",
     url: `${urlApi}/api/pedido/${number}`,
+    withCredentials: true,
   });
 }
 ;

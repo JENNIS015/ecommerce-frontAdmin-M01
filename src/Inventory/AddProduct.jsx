@@ -80,7 +80,7 @@ const Inventory = () => {
   return (
     <Fragment>
       <Container>
-        <PageTitle title="Inventory" />
+        <PageTitle title="Productos" />
         <Paper className={classes.toolbar}>
           <div style={{ display: "flex" }}>
             <div className={classes.action}>

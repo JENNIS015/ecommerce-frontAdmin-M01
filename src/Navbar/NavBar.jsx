@@ -107,7 +107,7 @@ function NavBar() {
             className={classes.tab}
           />
           <Tab
-            label="Inventario"
+            label="Productos"
             value="/inventory"
             component={Link}
             to="/inventory"

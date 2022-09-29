@@ -44,7 +44,6 @@ export default function Users() {
     };
     getData();
   }, []);
-  console.log("DATA", data);
 
   return (
     <Container maxWidth="lg">
@@ -58,7 +57,7 @@ export default function Users() {
           alignItems="flex-start"
         >
           {data.map((item) => (
-            <Grid item xs={12} sm={6} md={3} key={data.id}>
+            <Grid item xs={12} sm={6} md={6} key={data.id}>
               <Cards
                 key={item.id}
                 item={item}
