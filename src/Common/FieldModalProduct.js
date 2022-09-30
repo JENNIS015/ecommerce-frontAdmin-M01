@@ -9,8 +9,11 @@ import {
   Box,
   IconButton,
   Button,
+  Select,
+  MenuItem,
 } from "@material-ui/core";
 import ArrowBack from "@material-ui/icons/ArrowBack";
+import { fetchCategory } from "../store/product";
 import { updateProduct } from "../store/product";
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -69,8 +72,25 @@ export default function FieldModal(props) {
   const handleChangePic = (file) => {
     setPics(file);
   };
+  const [categorias, setCategorias] = useState([]);
+  const [loading, setLoading] = useState(true);
+  console.log(categorias);
 
   useEffect(() => {
+    async function fetchMyAPI() {
+      setLoading(true);
+      try {
+        let response = await fetchCategory();
+
+        response = await response.data.categoria;
+
+        setCategorias(response);
+        setLoading(false);
+      } catch {
+        setLoading(false);
+      }
+    }
+    props.variant === "select" ? fetchMyAPI() : 
     document.getElementsByClassName("deleteImage");
   }, []);
 
@@ -123,6 +143,23 @@ export default function FieldModal(props) {
           margin="normal"
           variant="outlined"
         />
+      ) : props.variant === "select" ? (
+        <Select
+          onChange={handleChange}
+          value={value}
+          labelWidth={0}
+          inputProps={{
+            name: "category",
+            id: "outlined-category-simple",
+          }}
+          required
+        >
+          {categorias.map((item) => (
+            <MenuItem key={item._id} value={item.nombre}>
+              {item.nombre}
+            </MenuItem>
+          ))}
+        </Select>
       ) : props.variant === "pic" ? (
         <ImageUploader
           withIcon={false}

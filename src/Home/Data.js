@@ -22,6 +22,13 @@ const data = [
     image: urlApi + "/images/add_product.jpg",
   },
   {
+    title: "Categorias",
+    button: "Gestionar",
+    description: "Agrega un categoria o visualiza a tu tienda.",
+    route: "/inventory/category",
+    image: urlApi + "/images/category.jpg",
+  },
+  {
     title: "Ver Productos",
     button: "Visualizar",
     description: "Puedes modificar fotos y detalles. Gestión de stock",

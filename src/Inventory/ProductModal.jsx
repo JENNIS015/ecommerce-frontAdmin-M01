@@ -167,9 +167,11 @@ export default function ProductModal(props) {
             />
             <FieldRow
               label="Categoria"
+              variant="select"
               value={props.product.categoria}
               openModal={showFieldModal}
             />
+
             <FieldRow
               label="Stock"
               value={props.product.stock}

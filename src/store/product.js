@@ -76,21 +76,50 @@ export async function saveProduct(formData, setFormData, handleReset) {
     });
 }
 
+export async function saveCategory(categories, saveCategories) {
+  return await axios({
+    method: "post",
+    url: `${urlApi}/api/categorias`,
+    data: categories,
+    withCredentials: true,
+  })
+    .then(function (response) {})
+    .catch(function (response) {
+      //handle error
+      console.log(response);
+    })
+    .finally(() => {
+ 
+      saveCategories({
+        nombre: "",
+      });
+    });
+}
+
+export async function fetchCategory() {
+  return await axios({
+    method: "get",
+    url: `${urlApi}/api/categorias`,
+    withCredentials: true,
+  });
+}
+
+export async function deleteCategory(categoryID) {
+  console.log(categoryID);
+  return await axios({
+    method: "delete",
+    url: `${urlApi}/api/categorias/${categoryID}`,
+    withCredentials: true,
+  })
+}
 export async function deleteProduct(productID) {
-  console.log(productID);
+ 
   return await axios({
     method: "delete",
     url: `${urlApi}/api/productos/${productID}`,
     withCredentials: true,
   })
-    .then(function (response) {
-      //handle success
-    })
-    .catch(function (response) {
-      //handle error
-      console.log(response);
-    })
-    .finally(() => {});
+  
 }
 
 export async function updateProduct(productID, dataObj) {
@@ -136,7 +165,6 @@ export async function updateOrder(formData) {
     url: `${urlApi}/api/pedido/${formData._id}`,
     data: formData,
     withCredentials: true,
-    
   });
 }
 
@@ -147,4 +175,3 @@ export async function deleteOrderNumber(number) {
     withCredentials: true,
   });
 }
-;

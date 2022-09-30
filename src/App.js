@@ -16,7 +16,7 @@ import { LayoutBar } from "./Layout/LayoutBar";
 import { useSelector } from "react-redux";
 import ForgotPassword from "./Login/ForgotPassword";
 import ChangePassword from "./Login/ChangePassword";
-
+import Category from "./Inventory/Category/Category";
 
 const theme = createTheme({
   palette: {
@@ -102,11 +102,20 @@ function App(props) {
                 </Private>
               }
             />
+
             <Route
               path="/inventory/add"
               element={
                 <Private>
                   <AddProduct />
+                </Private>
+              }
+            />
+            <Route
+              path="/inventory/category"
+              element={
+                <Private>
+                  <Category />
                 </Private>
               }
             />

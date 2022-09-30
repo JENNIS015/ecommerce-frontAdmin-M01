@@ -155,9 +155,7 @@ const Inventory = (props) => {
     enter: theme.transitions.duration.enteringScreen,
     exit: theme.transitions.duration.leavingScreen,
   };
-  // const [sortData, setSortData] = useState({
-  //   id: -1,
-  // });
+ 
   const classDelete = message !== "" ? "classes.red" : "classes.white";
   const table = [
     "Foto",
