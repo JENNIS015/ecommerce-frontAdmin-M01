@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JENNIS015.github.io/frontadmin",
+  "homepage": "https://jennis015.github.io/ecommerce-frontAdmin-M01",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
