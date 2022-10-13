@@ -1,1 +1,1 @@
-export const urlApi = "http://localhost:8080";
+export const urlApi = process.env.API_SERVER;
