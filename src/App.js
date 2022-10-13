@@ -53,7 +53,7 @@ function App(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path="/password" element={<ForgotPassword />} />
           <Route path="/reset/:id" element={<ChangePassword />} />
