@@ -14,22 +14,22 @@ Se utilizó Passport + JWT + nodemailer en el backend
 
 ## Tablero de control
 Desde el cual puede acceder a visualizar, editar y eliminar los distintos componentes detallados.
-![Tablero](github/dashboard.jpg)
+![Tablero](github/dashboard.jpg | width=100)
 
  ## Productos
  Se permite gestionar las categorias y productos.
  Se pueden generar, editar y eliminar.
 
- [Gestión de productos](github/products.jpg)!
- [Agregar nuevo producto](github/newProduct.jpg)
+  ![Gestión de productos](github/products.jpg | width=100)!
+  ![Agregar nuevo producto](github/newProduct.jpg | width=100)
 
   ## Ordenes de pedido
  Se permite editar y eliminar pedidos de usuario.
- [Control de ordenes](github/orders.jpg)
- ![Edición de ordenes](github/orders_edit.jpg)
+  ![Control de ordenes](github/orders.jpg | width=100)
+  ![Edición de ordenes](github/orders_edit.jpg | width=100)
 
    ## Cuentas de usuario
 Se permite editar datos del administrador y configurar las notificaciones.!
-[Mi Cuenta](github/myaccount.jpg)
+ ![Mi Cuenta](github/myaccount.jpg | width=100)
 De usuarios se permite eliminar cuentas
-[Cuentas de usuario](github/buyers.jpg)
+ ![Cuentas de usuario](github/buyers.jpg | width=100)
