@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { Box, Typography, Grid, FormControl } from "@mui/material";
-//import ImageUploader from "react-images-upload";
+import ImageUploader from "react-images-upload";
 
 export default function Media({ formData, setFormData }) {
   const handleChange = (file) => {
@@ -29,7 +29,16 @@ export default function Media({ formData, setFormData }) {
       <Grid container item xs={8} spacing={2}>
         <div className="container">
           <FormControl>
-           
+            <ImageUploader
+              withIcon={false}
+              withPreview={true}
+              buttonText="Selecciona imagenes"
+              onChange={handleChange}
+              imgExtension={[".jpg", ".gif", ".png"]}
+              maxFileSize={5242880}
+              fileSizeError="El archivo es muy grande"
+              label="Limite imagen 5mb. Formato jpg,gif, png"
+            />
           </FormControl>
         </div>
       </Grid>
