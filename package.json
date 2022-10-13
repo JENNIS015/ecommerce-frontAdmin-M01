@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JENNIS015.github.io/ecommerce_frontAdmin_M01",
+  "homepage": "https://JENNIS015.github.io/ecommerce-frontAdmin-M01",
   "dependencies": {
     "@material-ui/icons": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.61",
