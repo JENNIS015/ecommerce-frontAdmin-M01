@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from "react";
-import ImageUploader from "react-images-upload";
+import { React, useState } from "react";
+ 
 import {
   makeStyles,
   TextField,
@@ -13,11 +13,7 @@ import {
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import { updateUser } from "../store/auth";
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+ 
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
@@ -35,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FieldModal(props) {
-  console.log("PO",props)
+ 
   const classes = useStyles();
-  //  const [pics, setPics] = useState(props.products.foto);
+ 
   const [value, setValue] = useState(props.value);
 
   const onSave = (database) => {

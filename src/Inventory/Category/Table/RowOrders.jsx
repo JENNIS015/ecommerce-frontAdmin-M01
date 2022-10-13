@@ -1,39 +1,18 @@
-import { Fragment, useEffect, useState } from "react";
-
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
- 
+import { Fragment } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Typography, Box, IconButton } from "@material-ui/core";
+import {
+  Typography,
+  Box,
+  IconButton,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { deleteCategory } from "../../../store/product";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    boxShadbow: "0 0 11px #eaf0f6",
-    borderRadius: "4px",
-    overflow: "hidden",
-    border: "1px solid #eaf0f6",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    // boxShadow: theme.shadows[5],
-    boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
-    padding: theme.spacing(2, 4, 3),
-    outline: "none",
-    borderRadius: "8px",
-    overflow: "scroll",
-    display: "flex",
-  },
-  toolbar: {
-    // boxShadow: '0 0 1px 0 rgba(0,0,0,.22)',
-    boxShadow: "0 0 11px #eaf0f6",
-    display: "inline-block",
-    marginBottom: theme.spacing(1),
-    width: "100%",
-  },
   table: {
     minWidth: 400,
   },
@@ -53,19 +32,11 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: "solid",
     borderLeftWidth: "3px",
   },
-  tableFoot: {
-    fontSize: "0.875rem",
-    color: "#525f7f",
-  },
+
   button: {
     margin: theme.spacing(1),
   },
-  primaryButton: {
-    backgroundColor: "#2196f3",
-  },
-  input: {
-    display: "none",
-  },
+
   tableRow: {
     borderColor: "#fff",
     borderStyle: "solid",
@@ -81,29 +52,16 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  paidChip: {
-    backgroundColor: "#66BB6A",
-    color: "#fff",
-  },
-  unfulfilledChip: {
-    backgroundColor: "#F44336",
-    color: "#fff",
-  },
-  active: {
-    color: theme.palette.primary.main,
-  },
-  even: {
-    backgroundColor: "#fff",
-  },
 }));
 
 function RowOrders(props) {
-
+  
   const classes = useStyles();
-  function deleteC(id){
+  function deleteC(id) {
     deleteCategory(id);
     props.refresh();
   }
+
   return (
     <Fragment>
       <TableHead>

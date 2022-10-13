@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import {  useState } from "react";
 import {
   Container,
   Box,
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1),
   },
-  box: {},
+ 
   root: {
     width: "90vw",
   },

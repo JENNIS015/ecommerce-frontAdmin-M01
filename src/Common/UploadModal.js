@@ -1,7 +1,5 @@
-import {React,useState} from "react";
 import clsx from "clsx";
-
-import { Grid, Typography, Divider, Box,FormControl } from "@material-ui/core";
+import { Grid, Typography, Divider, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Edit from "@material-ui/icons/KeyboardArrowRight";
 
@@ -16,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "10px",
   },
   hover: {
-    // margin: theme.spacing(1),
     "&:hover": {
       backgroundColor: "#f5f5f5",
       cursor: "pointer",
@@ -51,7 +48,7 @@ const UploadModal = (props) => {
             {props.label}
           </Typography>
         </Grid>
-     
+
         <Grid item xs={1}>
           <Box display="flex" justifyContent="center">
             {props.openModal ? <Edit className={classes.icon} /> : null}

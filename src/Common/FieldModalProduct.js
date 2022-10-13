@@ -13,14 +13,10 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import ArrowBack from "@material-ui/icons/ArrowBack";
-import { fetchCategory } from "../store/product";
-import { updateProduct } from "../store/product";
+import { fetchCategory, updateProduct } from "../store/product";
+ 
 const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+ 
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
@@ -74,7 +70,7 @@ export default function FieldModal(props) {
   };
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(categorias);
+ 
 
   useEffect(() => {
     async function fetchMyAPI() {

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { urlApi } from "../utils/config";
 import {
   makeStyles,
@@ -15,17 +15,13 @@ import { deletePic } from "../store/product";
 import FieldRow from "../Common/FieldRow.js";
 import FieldModal from "../Common/FieldModalProduct";
 import UploadModal from "./../Common/UploadModal";
-import { useEffect } from "react";
-
+ 
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(1),
     minWidth: "55vw",
   },
-  textField: {
-    marginRight: theme.spacing(1),
-    width: "375px",
-  },
+ 
   button: {
     boxShadow: "none",
   },
@@ -33,9 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
-  subtitle: {
-    textAlign: "right",
-  },
+ 
   image: {
     width: "5vw",
     boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
@@ -52,14 +46,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    // boxShadow: theme.shadows[5],
-    boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
-    padding: theme.spacing(2, 4, 3),
-    outline: "none",
-    borderRadius: "8px",
-  },
+ 
   btnDelete: {
     backgroundColor: "#9d3030",
     zIndex: 1,

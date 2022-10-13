@@ -1,5 +1,4 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
 import Box from "@material-ui/core/Box";
 import CardContent from "@material-ui/core/CardContent";
@@ -11,9 +10,8 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   card: {
     margin: "auto",
+    height: "240px",
 
-    transition: "0.3s",
-    boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
     "&:hover": {
       boxShadow: "0 16px 70px -12.125px rgba(0,0,0,0.3)",
     },
@@ -21,19 +19,20 @@ const useStyles = makeStyles((theme) => ({
 
   content: {
     padding: "10px",
-    display: "flex",
+
   },
   divider: {
     margin: `3px 0`,
   },
   title: {
-    fontWeight: "bold",
+    fontWeight: "500",
+    textTransform:"uppercase",
   },
-  heading: {
-    width: "50%",
-  },
+
   btn: {
     marginTop: "20px",
+    background: "#000",
+    color: "#fff",
   },
 }));
 
@@ -44,7 +43,7 @@ export default function Cards({ item, deleteProp }) {
       <Card className={classes.card} key={item.id}>
         <CardContent className={classes.content}>
           <Box p={2} gap={2} className={classes.heading}>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
               {item.name + "" + item.lastName}
             </Typography>
             <Divider className={classes.divider} light />

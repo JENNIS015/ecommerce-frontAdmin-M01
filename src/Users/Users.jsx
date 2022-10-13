@@ -14,9 +14,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
   title: {
-    fontFamily: "ApercuMedium",
     marginTop: theme.spacing(4),
   },
+  cards: {
+    height: "150px",
+  } 
 }));
 
 export default function Users() {
@@ -28,7 +30,7 @@ export default function Users() {
     await deleteUser(user)
       .then(setData(data.filter((i) => i.email !== user)))
       .catch((e) => {
-        console.log(e);
+        // console.log(e);
       });
   };
   useEffect(() => {
@@ -47,17 +49,17 @@ export default function Users() {
 
   return (
     <Container maxWidth="lg">
-      <PageTitle title="Usuarios Registrados" />
+      <PageTitle title="Usuarios Registrados"  />
       <div className={classes.root}>
         <Grid
           container
           spacing={2}
           direction="row"
-          justify="flex-start"
+          justifyContent="flex-start"
           alignItems="flex-start"
         >
           {data.map((item) => (
-            <Grid item xs={12} sm={6} md={6} key={data.id}>
+            <Grid item xs={12} sm={6} md={4} key={data.id}>
               <Cards
                 key={item.id}
                 item={item}

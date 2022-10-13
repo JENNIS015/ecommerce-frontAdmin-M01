@@ -1,4 +1,4 @@
-import { React, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Fragment } from "react";
 import {
   makeStyles,
   Grid,
@@ -11,7 +11,6 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import { fetchCategory } from "../../store/product";
-import { Fragment } from "react";
 import Loading from "../../Common/Loading";
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -26,7 +25,7 @@ export default function Basics({ formData, setFormData }) {
  
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(categorias);
+ 
   useEffect(() => {
     async function fetchMyAPI() {
       setLoading(true);

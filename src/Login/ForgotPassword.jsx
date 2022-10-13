@@ -1,14 +1,13 @@
 import { React, useState, useEffect } from "react";
-import Container from "@material-ui/core/Container";
 import isEmpty from "lodash/isEmpty";
-import { makeStyles } from "@material-ui/core/styles";
 import { resetPassword } from "../store/auth";
-import { connect } from "react-redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, connect } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   Paper,
   Grid,
+  Container,
+  makeStyles,
   TextField,
   Button,
   Typography,
@@ -17,6 +16,7 @@ import {
 } from "@material-ui/core";
 import ErrorMessage from "./Error";
 import { PersonOutline } from "@material-ui/icons";
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(1),
@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   title: {
-    fontFamily: "ApercuMedium",
     marginBottom: theme.spacing(6),
     paddingTop: "20vh",
   },
@@ -38,31 +37,25 @@ const useStyles = makeStyles((theme) => ({
   },
   inactive: {
     color: "#757575",
-  }, 
+  },
   link: {
     color: "#2196F3",
-    fontWeight: "800",
+    fontWeight: "500",
     marginBottom: theme.spacing(4),
   },
   active: {
     color: "#2196F3",
   },
   button: {
-    marginTop: theme.spacing(4),
-  },
-  formControlLabel: {
-    fontSize: "0.875rem",
-  },
-  logo: {
-    width: "128px",
-    userSelect: "none",
-    pointerEvents: "none",
+    margin: 0,
+    background: "#f44336",
+    display: "block",
+    color: "white",
   },
 }));
 function ForgotPassword(props) {
-  console.log(props);
   const classes = useStyles();
-  // Values
+
   const [creds, setCreds] = useState({
     email: "",
   });
@@ -134,7 +127,6 @@ function ForgotPassword(props) {
                   onChange={(e) =>
                     setCreds({ ...creds, email: e.target.value })
                   }
-                  autoComplete="off"
                   disabled={submit}
                   error={errors.email}
                   fullWidth
@@ -146,31 +138,20 @@ function ForgotPassword(props) {
                   container
                   alignItems="center"
                   justifyContent="space-between"
-                ></Grid>
-                <Grid
-                  container
-                  justifyContent="center"
-                  className={classes.button}
                 >
                   <Button
                     variant="contained"
-                    color="primary"
-                    style={{
-                      boxShadow: "none",
-                      width: 100,
-                      marginBottom: "1rem",
-                      textTransform: "none",
-                    }}
+                    className={classes.button}
                     onClick={onSubmit}
                     disabled={submit}
                   >
                     {submit ? (
-                      <CircularProgress style={{ color: "#fff" }} size={24} />
+                      <CircularProgress style={{ color: "#000" }} size={24} />
                     ) : (
-                      <Typography>Resetear</Typography>
+                      <Typography>Restablecer</Typography>
                     )}
                   </Button>
-                  <div style={{ width: 352, height: 50 }}>
+                  <div style={{ width: "100%", height: 50 }}>
                     {props.errorMessage.message ? (
                       canShow === true ? (
                         <ErrorMessage
@@ -182,12 +163,7 @@ function ForgotPassword(props) {
                       )
                     ) : null}
                   </div>
-                </Grid>
-                <Grid
-                  container
-                  justifyContent="center"
-                  className={classes.button}
-                >
+
                   <Link className={classes.link} to="/">
                     Iniciar Sesión
                   </Link>

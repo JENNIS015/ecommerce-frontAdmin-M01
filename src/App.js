@@ -1,8 +1,8 @@
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { userSignOutRequest } from "./store/auth";
 import blue from "@material-ui/core/colors/blue";
 import Login from "./Login/Login";
@@ -13,7 +13,6 @@ import Home from "./Home/Home";
 import AddProduct from "./Inventory/AddProduct";
 import Users from "./Users/Users";
 import { LayoutBar } from "./Layout/LayoutBar";
-import { useSelector } from "react-redux";
 import ForgotPassword from "./Login/ForgotPassword";
 import ChangePassword from "./Login/ChangePassword";
 import Category from "./Inventory/Category/Category";
@@ -26,17 +25,7 @@ const theme = createTheme({
       dark: blue[700],
     },
   },
-  typography: {
-    fontFamily: [
-      "Apercu",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      "Roboto",
-      "Arial",
-      "sans-serif",
-    ].join(","),
-  },
+  
   overrides: {
     MuiOutlinedInput: {
       root: {

@@ -38,7 +38,7 @@ export function fetchProducts() {
       }
     } catch (error) {
       dispatch(fetchProductsError(error));
-      console.log(error);
+ 
     }
   };
 }
@@ -53,8 +53,7 @@ export async function saveProduct(formData, setFormData, handleReset) {
   })
     .then(function (response) {})
     .catch(function (response) {
-      //handle error
-      console.log(response);
+      // console.log(response);
     })
     .finally(() => {
       handleReset();
@@ -85,8 +84,8 @@ export async function saveCategory(categories, saveCategories) {
   })
     .then(function (response) {})
     .catch(function (response) {
-      //handle error
-      console.log(response);
+
+      // console.log(response);
     })
     .finally(() => {
  
@@ -105,7 +104,7 @@ export async function fetchCategory() {
 }
 
 export async function deleteCategory(categoryID) {
-  console.log(categoryID);
+ 
   return await axios({
     method: "delete",
     url: `${urlApi}/api/categorias/${categoryID}`,
@@ -121,7 +120,17 @@ export async function deleteProduct(productID) {
   })
   
 }
+export async function addFav(productID, check) {
 
+  return await axios({
+    method: "put",
+    url: `${urlApi}/api/productos/${productID}`,
+    data: { "destacado": check },
+    withCredentials: true,
+    headers: { "content-type": "multipart/form-data" },
+  });
+}
+ 
 export async function updateProduct(productID, dataObj) {
   return await axios({
     method: "put",
@@ -130,11 +139,7 @@ export async function updateProduct(productID, dataObj) {
     withCredentials: true,
     headers: { "content-type": "multipart/form-data" },
   })
-    .then(function (response) {})
-    .catch(function (response) {
-      //handle error
-      console.log(response);
-    });
+    
 }
 
 export async function deletePic(productID, dataObj) {
@@ -147,7 +152,7 @@ export async function deletePic(productID, dataObj) {
     .then(function (response) {})
     .catch(function (response) {
       //handle error
-      console.log(response);
+      // console.log(response);
     });
 }
 

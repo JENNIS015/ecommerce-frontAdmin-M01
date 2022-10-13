@@ -1,20 +1,17 @@
 import { React, Fragment, useState, useEffect } from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import Edit from "./Manage/Edit";
-
 import {
   TableFooter,
   TablePagination,
-  TableRow,
+  Paper,
+  Modal,
+  Backdrop,
+  Fade,
+ 
   Table,
 } from "@material-ui/core";
 import RowOrders from "./Table/RowOrders";
-
+import Edit from "./Manage/Edit";
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -35,23 +32,18 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
   },
-  primaryButton: {
-    backgroundColor: "#2196f3",
-  },
 }));
 
 export default function OrdersTable({ orders, setChange, change }) {
-  // const row = orders ? orders : props;
   const classes = useStyles();
 
-  const [dataPage, setDataPage] = useState(0);
+ 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
     setPage(0);
-  }, [dataPage]);
-
+  }, [ ]);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
@@ -85,17 +77,17 @@ export default function OrdersTable({ orders, setChange, change }) {
   };
   const handleChangePage = (event, newPage) => setPage(newPage);
   const [formData, setFormData] = useState({});
-   const [open, setOpenModal] = useState(false);
+  const [open, setOpenModal] = useState(false);
 
-   const handleOpen = (order) => {
-     setFormData(order);
-     setOpenModal(true);
-   };
+  const handleOpen = (order) => {
+    setFormData(order);
+    setOpenModal(true);
+  };
 
-   const handleClose = () => {
-     setOpenModal(false);
-   };
- 
+  const handleClose = () => {
+    setOpenModal(false);
+  };
+
   return (
     <Fragment>
       <Paper className={classes.toolbar}>
@@ -109,17 +101,14 @@ export default function OrdersTable({ orders, setChange, change }) {
             handleOpen={handleOpen}
           />
           <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 25, 50, 100]}
-                component="div"
-                count={data.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-              />
-            </TableRow>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25, 50, 100]}
+              count={orders.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
           </TableFooter>
         </Table>
         <Modal

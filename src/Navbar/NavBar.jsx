@@ -1,5 +1,4 @@
 import { Fragment, React, useState } from "react";
-
 import { Link } from "react-router-dom";
 import { userSignOutRequest } from "../store/auth";
 import {
@@ -14,14 +13,14 @@ import {
   makeStyles,
   Tab,
 } from "@material-ui/core";
+
 const useStyles = makeStyles({
   paper: {
-    backgroundColor: "#fff",
-    // boxShadow: theme.shadows[5],
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
     padding: "2em",
     outline: "none",
     borderRadius: "8px",
+    background:"white"
   },
   modal: {
     display: "flex",
@@ -29,7 +28,7 @@ const useStyles = makeStyles({
     justifyContent: "center",
   },
   title: {
-    fontFamily: "ApercuMedium",
+ 
     marginTop: "2em",
     marginBottom: "2em",
   },
@@ -39,17 +38,17 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     zIndex: 3000,
-    boxShadow: "0 10px 20px rgba(0,0,0,0.025), 0 2px 2px rgba(0,0,0,0.05)",
+ 
     borderRadius: "0px",
     padding: "2px 0px 0px 5px",
     overflow: "hidden",
-    // backgroundColor: '#1a237e',
+    backgroundColor: '#000',
+ 
   },
   tab: {
-    fontFamily: "ApercuMedium",
-    textTransform: "none",
-    // color: '#fff',
-    color: "#525f7f",
+
+    textTransform: "uppercase",
+    color: "#fff",
     fontSize: "0.85rem",
   },
 });

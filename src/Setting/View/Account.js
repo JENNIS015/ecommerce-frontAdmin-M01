@@ -15,9 +15,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
-  rightIcon: {
-    fontSize: "1em",
-  },
+ 
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),

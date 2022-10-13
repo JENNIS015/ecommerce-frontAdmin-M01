@@ -1,29 +1,11 @@
-import React from "react";
-import {
-  makeStyles,
-  Grid,
-  Box,
-  Typography,
-  TextField,
- 
-} from "@material-ui/core";
+import { Grid, Box, Typography, TextField } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    minWidth: 120,
-    marginTop: theme.spacing(2),
-  },
-}));
- 
-
-export default function Price({formData, setFormData}) {
-  const classes = useStyles();
-
+export default function Price({ formData, setFormData }) {
   return (
-    <Grid container className={classes.grid} spacing={4}>
-      <Grid item className={classes.box} xs={4}>
+    <Grid container   spacing={4}>
+      <Grid item   xs={4}>
         <Box>
-          <Typography variant="h5" className={classes.title} gutterBottom>
+          <Typography variant="h5"   gutterBottom>
             Precio
           </Typography>
           <Typography variant="subtitle1">
@@ -31,7 +13,7 @@ export default function Price({formData, setFormData}) {
           </Typography>
         </Box>
       </Grid>
-      <Grid container item className={classes.box} xs={8}>
+      <Grid container item   xs={8}>
         <Grid item xs={7}>
           <TextField
             id="regular-price"
@@ -45,9 +27,7 @@ export default function Price({formData, setFormData}) {
                 precio: e.target.value,
               });
             }}
-            value={
-              formData.precio 
-            }
+            value={formData.precio}
             fullWidth
           />
         </Grid>
@@ -64,9 +44,7 @@ export default function Price({formData, setFormData}) {
                 oferta: e.target.value,
               });
             }}
-            value={
-              formData.oferta 
-            }
+            value={formData.oferta}
             fullWidth
           />
         </Grid>
@@ -75,17 +53,14 @@ export default function Price({formData, setFormData}) {
             id="datetime-local"
             label="Fecha"
             type="datetime-local"
-            className={classes.textField}
+ 
             onChange={(e) => {
               setFormData({
                 ...formData,
                 fecha: e.target.value,
               });
             }}
-            value={
-              formData.fecha
-            }
-       
+            value={formData.fecha}
           />
         </Grid>
       </Grid>

@@ -1,33 +1,17 @@
-import React from "react";
-import {
-  makeStyles,
-  Grid,
-  Box,
-  Typography,
-  TextField,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    minWidth: 120,
-    marginTop: theme.spacing(2),
-  },
-}));
+import { Grid, Box, Typography, TextField } from "@material-ui/core";
 
 export default function Shipping({ formData, setFormData }) {
-  const classes = useStyles();
-
   return (
-    <Grid container className={classes.grid} spacing={4}>
-      <Grid item className={classes.box} xs={4}>
+    <Grid container spacing={4}>
+      <Grid item xs={4}>
         <Box>
-          <Typography variant="h5" className={classes.title} gutterBottom>
+          <Typography variant="h5" gutterBottom>
             Datos para calcular el envio
           </Typography>
           <Typography variant="subtitle1">Indica medidas y peso.</Typography>
         </Box>
       </Grid>
-      <Grid container item className={classes.box} spacing={1} xs={8}>
+      <Grid container item spacing={1} xs={8}>
         <Grid item xs={4}>
           <TextField
             id="largo"

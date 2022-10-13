@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-
 import { Grid, Typography, Divider, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Edit from "@material-ui/icons/KeyboardArrowRight";
@@ -16,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "10px",
   },
   hover: {
-    // margin: theme.spacing(1),
     "&:hover": {
       backgroundColor: "#f5f5f5",
       cursor: "pointer",
@@ -24,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
   row: {
     paddingTop: theme.spacing(1),
-    
   },
   icon: {
     color: "#5f6368",
@@ -40,7 +37,7 @@ const FieldRow = (props) => {
         label: props.label,
         value: props.value,
         variant: props.variant,
-        database:props.database
+        database: props.database,
       });
     }
   };
@@ -54,9 +51,10 @@ const FieldRow = (props) => {
           </Typography>
         </Grid>
         <Grid item xs={6}>
-         
-          <Typography className="subtitle"> {
-           props.database!=="password"?props.value:"**********"}</Typography>
+          <Typography className="subtitle">
+            {" "}
+            {props.database !== "password" ? props.value : "**********"}
+          </Typography>
         </Grid>
         <Grid item xs={1}>
           <Box display="flex" justifyContent="center">

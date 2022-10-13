@@ -3,7 +3,6 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
@@ -17,29 +16,37 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
+    fontWeight: "600",
   },
 
   card: {
-   
- 
-    boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
-    boxShadow:
-      "0 0.938em 1.588em rgba(50,50,93,.1), 0 0.313em 0.938em rgba(0,0,0,.07)",
+    display: "flex",
+    background: "#f0f0f0",
+    margin: "10px",
+    minHeight: "200px",
+    border: "1px solid #dddddd",
   },
   media: {
     userSelect: "none",
     pointerEvents: "none",
-    maxHeight:"300px",
-    maxWidth:"400px"
+    maxHeight: "200x",
+    maxWidth: "200px",
+  },
+  btn: {
+    background: "#000000",
+    padding: "5px 20px",
+    color: "white",
+    alignItems: "flex-end",
+    marginTop: "20px",
   },
 }));
 
 function Home() {
   const classes = useStyles();
-  console.log(data);
+
   return (
     <Container className={classes.container} maxWidth="lg">
-      <Grid container spacing={2} columns={1}>
+      <Grid container>
         {data.map((item) => (
           <Grid key={item.title} item xs={12} sm={6}>
             <Card className={classes.card}>
@@ -49,25 +56,29 @@ function Home() {
                 image={item.image}
                 className={classes.media}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+              <CardContent className={classes.cardContent}>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="h2"
+                  className={classes.title}
+                >
                   {item.title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   {item.description}
                 </Typography>
-              </CardContent>
 
-              <CardActions>
                 <Button
                   size="small"
                   color="primary"
                   component={Link}
                   to={item.route}
+                  className={classes.btn}
                 >
                   {item.button}
                 </Button>
-              </CardActions>
+              </CardContent>
             </Card>
           </Grid>
         ))}

@@ -1,27 +1,24 @@
 import { React, useState, useEffect } from "react";
-import Container from "@material-ui/core/Container";
 import isEmpty from "lodash/isEmpty";
-import { makeStyles } from "@material-ui/core/styles";
-import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { verifyToken } from "../store/auth";
 import ErrorMessage from "./Error";
 import {
   Paper,
   Grid,
+  Container,
+  makeStyles,
   TextField,
   Button,
   Typography,
   InputAdornment,
   CircularProgress,
 } from "@material-ui/core";
-
 import { LockOutlined } from "@material-ui/icons";
+
 const useStyles = makeStyles((theme) => ({
-  background: {
-    background: "#2196F3",
-  },
+  
   paper: {
     padding: theme.spacing(1),
     boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
@@ -30,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   title: {
-    fontFamily: "ApercuMedium",
     marginBottom: theme.spacing(6),
     paddingTop: "20vh",
   },
@@ -45,12 +41,7 @@ const useStyles = makeStyles((theme) => ({
   password: {
     marginBottom: theme.spacing(1),
   },
-  inactive: {
-    color: "#757575",
-  },
-  active: {
-    color: "#2196F3",
-  },
+ 
   button: {
     marginTop: theme.spacing(4),
   },
@@ -77,7 +68,7 @@ function ChangePassword(props) {
   const [submit, setSubmit] = useState(false);
   const [save, setSave] = useState(false);
   const onSubmit = () => {
-     save === false ? setSave(true) : setSave(false);
+    save === false ? setSave(true) : setSave(false);
     setSubmit(true);
   };
   const dispatch = useDispatch();

@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AccountIcon from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
@@ -10,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1em",
     width: 175,
     marginLeft: theme.spacing(2),
-    fontFamily: "ApercuMedium",
+ 
   },
   leftIcon: {
     marginRight: theme.spacing(2),

@@ -93,11 +93,11 @@ export default function VerticalTabs(props) {
         textColor="primary"
       >
         <Tab
-          label={<TabButton icon="account" text="account" />}
+          label={<TabButton icon="account" text="Cuenta" />}
           {...a11yProps(0)}
         />
         <Tab
-          label={<TabButton icon="notifications" text="notifications" />}
+          label={<TabButton icon="notifications" text="Notificaciones" />}
           {...a11yProps(1)}
         />
       </Tabs>

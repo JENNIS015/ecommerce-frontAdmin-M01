@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import { useNavigate } from "react-router-dom";
-import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core/styles";
+
 import {
   Paper,
+  makeStyles,
+  Container,
   Grid,
   TextField,
   Button,
@@ -26,9 +27,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   title: {
-    fontFamily: "ApercuMedium",
+    color: "#f44336",
     marginBottom: theme.spacing(6),
-    paddingTop: "20vh",
   },
   textfield: {
     marginBottom: theme.spacing(4),
@@ -36,33 +36,22 @@ const useStyles = makeStyles((theme) => ({
   password: {
     marginBottom: theme.spacing(1),
   },
-  inactive: {
-    color: "#757575",
-  },
-  active: {
-    color: "#2196F3",
-  },
-  button: {
+
+  btn: {
     marginTop: theme.spacing(4),
-  },
-  formControlLabel: {
-    fontSize: "0.875rem",
-  },
-  logo: {
-    width: "128px",
-    userSelect: "none",
-    pointerEvents: "none",
+    background: "#f44336",
+    display:"block",
+    color:"white"
   },
 }));
 
 const Login = (props) => {
   const classes = useStyles();
 
-  const [email, setemail] = useState(false);
-  const [password, setPassword] = useState(false);
+ 
   const [submit, setSubmit] = useState(false);
   const [execute, setExecute] = useState(false);
-  // Values
+ 
   const [creds, setCreds] = useState({
     email: "",
     password: "",
@@ -129,14 +118,11 @@ const Login = (props) => {
                 </InputAdornment>
               ),
             }}
-            // onFocus={() => setemail(true)}
-            // onBlur={() => setemail(false)}
             onChange={(e) => setCreds({ ...creds, email: e.target.value })}
-            autoComplete="off"
+ 
             disabled={submit}
             error={errors.email}
             fullWidth
-            autoFocus
             required
           />
           <TextField
@@ -153,62 +139,48 @@ const Login = (props) => {
                 </InputAdornment>
               ),
             }}
-            // onFocus={() => setPassword(true)}
-            // onBlur={() => setPassword(false)}
             onChange={(e) => setCreds({ ...creds, password: e.target.value })}
-            autoComplete="off"
+ 
             disabled={submit}
             error={errors.password}
             fullWidth
             required
           />
-          <Grid container alignItems="center" justifyContent="space-between">
-            <Grid item>
-              <Button
-                disableFocusRipple
-                disableRipple
-                style={{ textTransform: "none" }}
-                variant="text"
-                color="primary"
-                disabled={submit}
-                onClick={changePath}
-              >
-                ¿Olvidaste la contraseña?
-              </Button>
-            </Grid>
-          </Grid>
-          <Grid container justifyContent="center" className={classes.button}>
-            <Button
-              variant="contained"
-              color="primary"
-              style={{
-                boxShadow: "none",
-                width: 100,
-                marginBottom: "1rem",
-                textTransform: "none",
-              }}
-              onClick={onSubmit}
-              disabled={submit}
-            >
-              {submit ? (
-                <CircularProgress style={{ color: "#fff" }} size={24} />
+
+          <Button
+            variant="contained"
+            className={classes.btn}
+            onClick={onSubmit}
+            disabled={submit}
+          >
+            {submit ? (
+              <CircularProgress style={{ color: "#fff" }} size={24} />
+            ) : (
+              <Typography>Ingresar</Typography>
+            )}
+          </Button>
+          <Button
+            disableFocusRipple
+            disableRipple
+            style={{ textTransform: "none" }}
+            variant="text"
+            disabled={submit}
+            onClick={changePath}
+          >
+            ¿Olvidaste la contraseña?
+          </Button>
+          <div style={{ width: "100%", height: "50px" }}>
+            {props.errorMessage.message ? (
+              canShow === true ? (
+                <ErrorMessage
+                  variant={props.errorMessage.variant}
+                  message={props.errorMessage.message.message}
+                />
               ) : (
-                <Typography>Ingresar</Typography>
-              )}
-            </Button>
-            <div style={{ width: 352, height: 112 }}>
-              {props.errorMessage.message ? (
-                canShow===true ? (
-                  <ErrorMessage
-                    variant={props.errorMessage.variant}
-                    message={props.errorMessage.message.message}
-                  />
-                ) : (
-                  <> </>
-                )
-              ) : null}
-            </div>
-          </Grid>
+                <> </>
+              )
+            ) : null}
+          </div>
         </div>
       </Paper>
     </Container>

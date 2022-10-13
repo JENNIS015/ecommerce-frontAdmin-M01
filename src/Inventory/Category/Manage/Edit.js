@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { updateOrder, deleteOrderNumber } from "../../../store/product";
 import {
   makeStyles,
@@ -21,12 +21,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
   },
   title: {
-    fontFamily: "ApercuMedium",
     color: theme.palette.action.active,
     marginBottom: theme.spacing(2),
   },
   subtitle: {
-    fontFamily: "ApercuMedium",
     color: theme.palette.action.active,
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
@@ -35,14 +33,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "none",
     margin: theme.spacing(1),
   },
-  rightIcon: {
-    marginLeft: theme.spacing(1),
-  },
+
   active: {
     color: theme.palette.primary.main,
-  },
-  popover: {
-    padding: theme.spacing(2),
   },
 }));
 
@@ -55,9 +48,7 @@ export default function Edit({
 }) {
   const classes = useStyles();
 
-
   const save = async () => {
-    console.log("formada", formData);
     await updateOrder(formData).then(() => {
       if (change === false) {
         setChange(true);

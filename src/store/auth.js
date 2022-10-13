@@ -1,5 +1,4 @@
 import axios from "axios";
-//import setAuthorizationToken from "./token";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./token";
 import { urlApi } from "../utils/config";
@@ -95,7 +94,7 @@ export function userSignInRequest(userData) {
     
       });
 
-      console.log(respuesta);
+      
       if (respuesta.status === 200) {
         const { token } = respuesta.data;
         localStorage.setItem("token", respuesta.data.token);
@@ -115,7 +114,7 @@ export function userSignInRequest(userData) {
 export function userSignOutRequest() {
   localStorage.removeItem("token");
   return async (dispatch) => {
-    //  setAuthorizationToken(false);
+ 
     dispatch(setCurrentUser({ isAuthenticated: false, user: {}, error: {} }));
   };
 }
@@ -183,7 +182,7 @@ export async function updateUser(userId, dataObj) {
     .then(function (response) {})
     .catch(function (response) {
       //handle error
-      console.log(response);
+    //  console.log(response);
     });
 }
 

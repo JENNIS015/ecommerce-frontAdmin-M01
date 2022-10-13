@@ -2,16 +2,28 @@ import React from "react";
 import LoginCard from "./LoginCard";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Container from "@material-ui/core/Container";
-import { Grid } from "@material-ui/core";
+import { Grid, Hidden, Container ,makeStyles} from "@material-ui/core";
 import { userSignInRequest } from "../store/auth";
+ 
+ const useStyles = makeStyles((theme) => ({
+   img: {
+     width: "100%",
+  
+   },
+   title: {
+     marginTop: theme.spacing(4),
+   },
+   cards: {
+     height: "150px",
+   },
+ }));
 
 function Login(props) {
+   const classes = useStyles();
   const { userSignInRequest } = props;
 
-
   return (
-    <Container style={{}}>
+    <Container>
       <Grid
         container
         direction="row"
@@ -19,8 +31,17 @@ function Login(props) {
         alignItems="center"
         style={{ height: "100vh" }}
       >
-        <Grid item sm={5}>
+        <Grid item xs={12} sm={6} md={6}>
           <LoginCard userSignInRequest={userSignInRequest} />
+        </Grid>
+        <Grid item sm={6} md={6}>
+          <Hidden xsDown>
+            <img
+              src="/img/login_image.jpg"
+              alt="inicio"
+              className={classes.img}
+            />
+          </Hidden>
         </Grid>
       </Grid>
     </Container>

@@ -1,16 +1,15 @@
+import  { useEffect } from "react";
+
 import { Box, Typography, Grid, FormControl } from "@material-ui/core";
 import ImageUploader from "react-images-upload";
-import React, { useEffect } from "react";
- 
+
 export default function Media({ formData, setFormData }) {
   const handleChange = (file) => {
-
     setFormData({
       ...formData,
       foto: file,
     });
   };
-
 
   useEffect(() => {
     document.getElementsByClassName("deleteImage");

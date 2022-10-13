@@ -1,9 +1,7 @@
-import { useState, React, useEffect, Fragment } from "react";
+import { useState,  useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-
 import Loading from "../../Common/Loading";
-import { Container, Box } from "@material-ui/core/";
-
+import { Container, Box } from "@material-ui/core";
 import PageTitle from "../../Common/PageTitle";
 import { fetchCategory } from "../../store/product";
 import CategoryTable from "./CategoryTable";
@@ -26,7 +24,6 @@ const Category = (props) => {
   useEffect(() => {
     async function fetchMyAPI() {
       setLoading(true);
-      console.log("Obteniendo datos...");
 
       try {
         let response = await fetchCategory();
@@ -34,7 +31,6 @@ const Category = (props) => {
         response = await response.data;
         setCategory(response);
         setLoading(false);
-  
       } catch {
         setLoading(false);
       }

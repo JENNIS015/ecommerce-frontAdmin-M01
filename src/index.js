@@ -14,7 +14,7 @@ import getTokenTimeRemaining from "./utils/getTokenTimeRemaing";
 if (localStorage.token) {
   const decodedToken = jwtDecode(localStorage.token);
   if (decodedToken.exp < new Date().getTime() / 100000) {
-    console.log("EXPIRED");
+    // console.log("EXPIRED");
   } else {
     setAuthorizationToken(localStorage.token);
     store.dispatch(setCurrentUser(decodedToken));

@@ -1,8 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
-import { makeStyles, Box, IconButton, Typography } from "@material-ui/core";
-import { ArrowBack } from "@material-ui/icons";
+import { makeStyles, Box, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -10,37 +7,24 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(3),
   },
   title: {
-    color: "#525f7f",
     marginTop: 4,
     marginLeft: 4,
+    background: "#efefef",
+    width: " 100%",
+    padding: " 20px",
   },
 }));
 
 export default function PageTitle(props) {
   const classes = useStyles();
-  //const useNavigate = useNavigate();
-
-//   const changeRoute = () => {
-//     const route = props.route ? props.route : "/dashboard/home";
-//     useNavigate.push(route);
-
-//     // Temporary workaround to allow another function to be passed via onClick prop
-//     if (props.onClick !== undefined) {
-//       props.onClick.call(this);
-//     }
-//   };
 
   return (
     <Box
       display="flex"
       justifyContent="flex-start"
-      justify="center"
       alignItems="center"
       className={classes.container}
     >
-      {/* <IconButton aria-label="delete" onClick={changeRoute}>
-        <ArrowBack />
-      </IconButton> */}
       <Typography variant="h6" className={classes.title} gutterBottom>
         {props.title}
       </Typography>

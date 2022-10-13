@@ -1,8 +1,6 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
-
 import SettingTabs from "./SettingTabs";
 import PageTitle from "./../Common/PageTitle";
 
@@ -15,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
   title: {
-    fontFamily: "ApercuMedium",
+ 
     marginTop: theme.spacing(4),
   },
 }));
@@ -27,7 +25,7 @@ export default function Settings( ) {
   return (
     <Container maxWidth="lg">
   
-      <PageTitle title="Settings" />
+      <PageTitle title="Mi Cuenta" />
       <Paper className={classes.paper}>
         <SettingTabs />
       </Paper>
