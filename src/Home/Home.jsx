@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import { makeStyles } from "@mui/material/styles";
+ import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";

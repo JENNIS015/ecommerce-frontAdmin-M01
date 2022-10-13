@@ -1,7 +1,7 @@
 import { useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { makeStyles } from "@mui/material/styles";
+ import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import CreateProduct from "./CreateProductForm";

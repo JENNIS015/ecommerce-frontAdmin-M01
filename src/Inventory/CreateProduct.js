@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Button from "@mui/material/Button";
-import { makeStyles } from "@mui/material/styles";
+ import { makeStyles } from "@mui/styles";
 import AddIcon from "@mui/icons-material/Add";
 
 const useStyles = makeStyles((theme) => ({

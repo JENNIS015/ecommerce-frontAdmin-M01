@@ -3,11 +3,11 @@ import isEmpty from "lodash/isEmpty";
 import { resetPassword } from "../store/auth";
 import { useDispatch, connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { makeStyles } from "@mui/styles";
 import {
   Paper,
   Grid,
   Container,
-  makeStyles,
   TextField,
   Button,
   Typography,

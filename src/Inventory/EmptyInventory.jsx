@@ -1,6 +1,6 @@
 import React from "react";
-
-import { Box, Typography, Container, makeStyles } from "@mui/material";
+ import { makeStyles } from "@mui/styles";
+import { Box, Typography, Container } from "@mui/material";
 import Construction from "../Common/img/construction.png";
 
 const useStyles = makeStyles((theme) => ({

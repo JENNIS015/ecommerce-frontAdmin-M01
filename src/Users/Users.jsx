@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { makeStyles } from "@mui/material/styles";
+ import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { getAllUser, deleteUser } from "../store/auth";

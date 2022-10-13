@@ -2,9 +2,9 @@ import { useEffect, useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchProducts, deleteProduct } from "../store/product";
-
+ import { makeStyles } from "@mui/styles";
 import {
-  makeStyles,
+ 
   Typography,
   Modal,
   Backdrop,
