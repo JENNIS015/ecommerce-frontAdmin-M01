@@ -7,7 +7,7 @@
 Cuenta con la parte del administrador con inicio de sesión seguro.
 Se utilizó Passport + JWT + nodemailer en el backend
 
- ![Inicio de Sesión](github/login.jpg)
+ ![Inicio de Sesión](github/login.jpg){:height="36px" width="36px"}.
 
 
  ![Restablecer contraseña](github/changePassword.jpg)
