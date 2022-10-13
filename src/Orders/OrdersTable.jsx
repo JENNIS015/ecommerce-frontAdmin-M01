@@ -1,5 +1,5 @@
 import { React, Fragment, useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/material/styles";
 import {
   TableFooter,
   TablePagination,
@@ -7,9 +7,8 @@ import {
   Modal,
   Backdrop,
   Fade,
- 
   Table,
-} from "@material-ui/core";
+} from "@mui/material";
 import RowOrders from "./Table/RowOrders";
 import Edit from "./Manage/Edit";
 const useStyles = makeStyles((theme) => ({
@@ -37,13 +36,12 @@ const useStyles = makeStyles((theme) => ({
 export default function OrdersTable({ orders, setChange, change }) {
   const classes = useStyles();
 
- 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   useEffect(() => {
     setPage(0);
-  }, [ ]);
+  }, []);
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));

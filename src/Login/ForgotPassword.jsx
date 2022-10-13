@@ -13,9 +13,9 @@ import {
   Typography,
   InputAdornment,
   CircularProgress,
-} from "@material-ui/core";
+} from "@mui/material";
 import ErrorMessage from "./Error";
-import { PersonOutline } from "@material-ui/icons";
+import { PersonOutline } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

@@ -10,7 +10,7 @@ import {
   Select,
   MenuItem,
   InputLabel,
-} from "@material-ui/core";
+} from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   textfield: {

@@ -9,7 +9,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
-} from "@material-ui/core";
+} from "@mui/material";
 import { fetchCategory } from "../../store/product";
 import Loading from "../../Common/Loading";
 const useStyles = makeStyles((theme) => ({
@@ -22,19 +22,19 @@ const useStyles = makeStyles((theme) => ({
 export default function Basics({ formData, setFormData }) {
   const classes = useStyles();
   const inputLabel = useRef(null);
- 
+
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+
   useEffect(() => {
     async function fetchMyAPI() {
       setLoading(true);
- 
+
       try {
         let response = await fetchCategory();
 
         response = await response.data.categoria;
- 
+
         setCategorias(response);
         setLoading(false);
       } catch {
@@ -42,8 +42,6 @@ export default function Basics({ formData, setFormData }) {
       }
     }
     fetchMyAPI();
-
- 
   }, []);
 
   return (

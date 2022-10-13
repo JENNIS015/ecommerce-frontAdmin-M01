@@ -1,11 +1,11 @@
-import { React, useState,  Fragment } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Modal from "@material-ui/core/Modal";
+import { React, useState, Fragment } from "react";
+import { makeStyles } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import Loading from "./../../Common/Loading";
 import FieldRow from "./../../Common/FieldRow";
 import FieldModalUser from "../../Common/FieldModalUser";
- import Divider from "@material-ui/core/Divider";
+import Divider from "@mui/material/Divider";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
- 
+
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
@@ -42,15 +42,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-  space:{
-    marginTop:"70px"
-  }
+  space: {
+    marginTop: "70px",
+  },
 }));
 
 export default function Account(props) {
   const classes = useStyles();
 
-  const  loading = true ;
+  const loading = true;
 
   const [fieldModal, setFieldModal] = useState({
     open: false,
@@ -102,12 +102,11 @@ export default function Account(props) {
           database="phone"
         />
         <Divider className={classes.space} light={true} />
-        
+
         <Typography variant="h6" gutterBottom>
           Contraseña
         </Typography>
 
-    
         <FieldRow
           label="Contraseña"
           value={props.data.password || ""}

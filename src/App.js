@@ -1,10 +1,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { createTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { connect, useSelector } from "react-redux";
 import { userSignOutRequest } from "./store/auth";
-import blue from "@material-ui/core/colors/blue";
+import blue from "@mui/material/colors/blue";
 import Login from "./Login/Login";
 import Setting from "./Setting/Setting";
 import Inventory from "./Inventory/Inventory";
@@ -25,7 +24,7 @@ const theme = createTheme({
       dark: blue[700],
     },
   },
-  
+
   overrides: {
     MuiOutlinedInput: {
       root: {

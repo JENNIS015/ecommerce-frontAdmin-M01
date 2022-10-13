@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import {
   Container,
   Box,
@@ -9,7 +9,7 @@ import {
   StepLabel,
   Grid,
   Input,
-} from "@material-ui/core";
+} from "@mui/material";
 import { saveProduct } from "../store/product";
 import Basics from "./Form/Basic";
 import Price from "./Form/Price";
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1),
   },
- 
+
   root: {
     width: "90vw",
   },
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreateProductForm({onClose}) {
+export default function CreateProductForm({ onClose }) {
   const classes = useStyles();
   const getSteps = () => {
     return ["Basico", "Precio", "Imagenes", "Envio"];
@@ -60,7 +60,6 @@ export default function CreateProductForm({onClose}) {
     foto: [],
   });
 
-
   function getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
@@ -71,7 +70,8 @@ export default function CreateProductForm({onClose}) {
         return <Shipping formData={formData} setFormData={setFormData} />;
       case 3:
         return <Media formData={formData} setFormData={setFormData} />;
-        default:return;
+      default:
+        return;
     }
   }
 
@@ -91,7 +91,6 @@ export default function CreateProductForm({onClose}) {
 
   const save = async () => {
     await saveProduct(formData, setFormData, handleReset);
-
   };
 
   return (

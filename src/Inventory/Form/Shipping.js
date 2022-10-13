@@ -1,4 +1,4 @@
-import { Grid, Box, Typography, TextField } from "@material-ui/core";
+import { Grid, Box, Typography, TextField } from "@mui/material";
 
 export default function Shipping({ formData, setFormData }) {
   return (

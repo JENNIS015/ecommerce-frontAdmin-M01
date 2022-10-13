@@ -12,7 +12,7 @@ import {
   Tabs,
   makeStyles,
   Tab,
-} from "@material-ui/core";
+} from "@mui/material";
 
 const useStyles = makeStyles({
   paper: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     padding: "2em",
     outline: "none",
     borderRadius: "8px",
-    background:"white"
+    background: "white",
   },
   modal: {
     display: "flex",
@@ -28,7 +28,6 @@ const useStyles = makeStyles({
     justifyContent: "center",
   },
   title: {
- 
     marginTop: "2em",
     marginBottom: "2em",
   },
@@ -38,15 +37,13 @@ const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     zIndex: 3000,
- 
+
     borderRadius: "0px",
     padding: "2px 0px 0px 5px",
     overflow: "hidden",
-    backgroundColor: '#000',
- 
+    backgroundColor: "#000",
   },
   tab: {
-
     textTransform: "uppercase",
     color: "#fff",
     fontSize: "0.85rem",

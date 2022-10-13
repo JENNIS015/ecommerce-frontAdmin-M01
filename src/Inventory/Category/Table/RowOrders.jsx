@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Typography,
   Box,
@@ -8,8 +8,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+} from "@mui/material";
+import { makeStyles } from "@mui/material/styles";
 import { deleteCategory } from "../../../store/product";
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function RowOrders(props) {
-  
   const classes = useStyles();
   function deleteC(id) {
     deleteCategory(id);

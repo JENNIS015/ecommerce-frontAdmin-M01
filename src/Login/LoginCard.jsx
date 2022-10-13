@@ -14,8 +14,8 @@ import {
   Typography,
   InputAdornment,
   CircularProgress,
-} from "@material-ui/core";
-import { LockOutlined, PersonOutline } from "@material-ui/icons";
+} from "@mui/material";
+import { LockOutlined, PersonOutline } from "@mui/icons-material";
 import ErrorMessage from "./Error";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,18 +40,17 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     marginTop: theme.spacing(4),
     background: "#f44336",
-    display:"block",
-    color:"white"
+    display: "block",
+    color: "white",
   },
 }));
 
 const Login = (props) => {
   const classes = useStyles();
 
- 
   const [submit, setSubmit] = useState(false);
   const [execute, setExecute] = useState(false);
- 
+
   const [creds, setCreds] = useState({
     email: "",
     password: "",
@@ -119,7 +118,6 @@ const Login = (props) => {
               ),
             }}
             onChange={(e) => setCreds({ ...creds, email: e.target.value })}
- 
             disabled={submit}
             error={errors.email}
             fullWidth
@@ -140,7 +138,6 @@ const Login = (props) => {
               ),
             }}
             onChange={(e) => setCreds({ ...creds, password: e.target.value })}
- 
             disabled={submit}
             error={errors.password}
             fullWidth

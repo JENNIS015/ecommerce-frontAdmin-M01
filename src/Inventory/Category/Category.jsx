@@ -1,7 +1,7 @@
-import { useState,  useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import Loading from "../../Common/Loading";
-import { Container, Box } from "@material-ui/core";
+import { Container, Box } from "@mui/material";
 import PageTitle from "../../Common/PageTitle";
 import { fetchCategory } from "../../store/product";
 import CategoryTable from "./CategoryTable";

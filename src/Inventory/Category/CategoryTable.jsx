@@ -1,4 +1,4 @@
-import {  Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import { saveCategory } from "../../store/product";
 import {
   Button,
@@ -8,11 +8,10 @@ import {
   Box,
   TextField,
   Typography,
-} from "@material-ui/core";
+} from "@mui/material";
 import RowOrders from "./Table/RowOrders";
 
 export default function CategoryTable({ category, refresh }) {
-
   const [formData, setFormData] = useState(category);
   const [categories, saveCategories] = useState();
 
@@ -23,7 +22,7 @@ export default function CategoryTable({ category, refresh }) {
   return (
     <Fragment>
       <Paper>
-        <Grid item xs={4} >
+        <Grid item xs={4}>
           <Box>
             <Typography variant="subtitle1">Agregar Categoria</Typography>
           </Box>
@@ -54,7 +53,7 @@ export default function CategoryTable({ category, refresh }) {
         </Grid>
         <hr></hr>
 
-        <Table >
+        <Table>
           <RowOrders data={formData} refresh={refresh} />
         </Table>
       </Paper>

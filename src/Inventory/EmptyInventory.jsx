@@ -1,6 +1,6 @@
 import React from "react";
- 
-import { Box, Typography, Container, makeStyles } from "@material-ui/core";
+
+import { Box, Typography, Container, makeStyles } from "@mui/material";
 import Construction from "../Common/img/construction.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -27,10 +27,10 @@ export default function EmptyInventory() {
           className={classes.bold}
           gutterBottom
         >
-       No hay productos
+          No hay productos
         </Typography>
         <Typography variant="subtitle1" align="center" gutterBottom>
-       Crea un nuevo producto para subir a tu sitio.
+          Crea un nuevo producto para subir a tu sitio.
         </Typography>
       </Container>
     </Container>

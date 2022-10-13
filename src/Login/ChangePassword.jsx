@@ -14,11 +14,10 @@ import {
   Typography,
   InputAdornment,
   CircularProgress,
-} from "@material-ui/core";
-import { LockOutlined } from "@material-ui/icons";
+} from "@mui/material";
+import { LockOutlined } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
-  
   paper: {
     padding: theme.spacing(1),
     boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   password: {
     marginBottom: theme.spacing(1),
   },
- 
+
   button: {
     marginTop: theme.spacing(4),
   },

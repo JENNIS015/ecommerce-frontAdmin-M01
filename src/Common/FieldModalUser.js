@@ -1,5 +1,5 @@
 import { React, useState } from "react";
- 
+
 import {
   makeStyles,
   TextField,
@@ -9,11 +9,10 @@ import {
   Box,
   IconButton,
   Button,
-} from "@material-ui/core";
-import ArrowBack from "@material-ui/icons/ArrowBack";
+} from "@mui/material";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { updateUser } from "../store/auth";
 const useStyles = makeStyles((theme) => ({
- 
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
@@ -31,13 +30,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FieldModal(props) {
- 
   const classes = useStyles();
- 
+
   const [value, setValue] = useState(props.value);
 
   const onSave = (database) => {
-
     let dataObj = { [`${database}`]: value };
 
     updateUser(props.data.email, dataObj)
@@ -49,11 +46,11 @@ export default function FieldModal(props) {
       )
       .finally(() => props.onClose());
   };
- 
+
   const handleChange = (e) => {
     setValue(e.target.value);
   };
- 
+
   return (
     <Container className={classes.paper}>
       <Box display="flex" justifyContent="flex-start">

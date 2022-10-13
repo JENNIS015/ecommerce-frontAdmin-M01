@@ -1,7 +1,7 @@
-import { makeStyles } from "@material-ui/core/styles";
-import AccountIcon from "@material-ui/icons/AccountCircle";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@mui/material/styles";
+import AccountIcon from "@mui/icons-material/AccountCircle";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Grid from "@mui/material/Grid";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1em",
     width: 175,
     marginLeft: theme.spacing(2),
- 
   },
   leftIcon: {
     marginRight: theme.spacing(2),

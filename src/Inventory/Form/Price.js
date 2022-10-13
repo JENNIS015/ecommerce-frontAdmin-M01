@@ -1,11 +1,11 @@
-import { Grid, Box, Typography, TextField } from "@material-ui/core";
+import { Grid, Box, Typography, TextField } from "@mui/material";
 
 export default function Price({ formData, setFormData }) {
   return (
-    <Grid container   spacing={4}>
-      <Grid item   xs={4}>
+    <Grid container spacing={4}>
+      <Grid item xs={4}>
         <Box>
-          <Typography variant="h5"   gutterBottom>
+          <Typography variant="h5" gutterBottom>
             Precio
           </Typography>
           <Typography variant="subtitle1">
@@ -13,7 +13,7 @@ export default function Price({ formData, setFormData }) {
           </Typography>
         </Box>
       </Grid>
-      <Grid container item   xs={8}>
+      <Grid container item xs={8}>
         <Grid item xs={7}>
           <TextField
             id="regular-price"
@@ -53,7 +53,6 @@ export default function Price({ formData, setFormData }) {
             id="datetime-local"
             label="Fecha"
             type="datetime-local"
- 
             onChange={(e) => {
               setFormData({
                 ...formData,

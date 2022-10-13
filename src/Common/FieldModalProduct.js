@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import ImageUploader from "react-images-upload";
+//import ImageUploader from "react-images-upload";
 import {
   makeStyles,
   TextField,
@@ -11,12 +11,11 @@ import {
   Button,
   Select,
   MenuItem,
-} from "@material-ui/core";
-import ArrowBack from "@material-ui/icons/ArrowBack";
+} from "@mui/material";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { fetchCategory, updateProduct } from "../store/product";
- 
+
 const useStyles = makeStyles((theme) => ({
- 
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
@@ -70,7 +69,6 @@ export default function FieldModal(props) {
   };
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
- 
 
   useEffect(() => {
     async function fetchMyAPI() {
@@ -86,8 +84,9 @@ export default function FieldModal(props) {
         setLoading(false);
       }
     }
-    props.variant === "select" ? fetchMyAPI() : 
-    document.getElementsByClassName("deleteImage");
+    props.variant === "select"
+      ? fetchMyAPI()
+      : document.getElementsByClassName("deleteImage");
   }, []);
 
   return (
@@ -157,17 +156,18 @@ export default function FieldModal(props) {
           ))}
         </Select>
       ) : props.variant === "pic" ? (
-        <ImageUploader
-          withIcon={false}
-          withPreview={true}
-          className={classes.image}
-          buttonText="Sube imagenes"
-          onChange={handleChangePic}
-          imgExtension={[".jpg", ".gif", ".png"]}
-          maxFileSize={5242880}
-          fileSizeError="El archivo es muy grande"
-          label="Limite imagen 5mb. Formato jpg,gif, png"
-        />
+        //<ImageUploader
+        //  withIcon={false}
+       //   withPreview={true}
+       //   className={classes.image}
+       //   buttonText="Sube imagenes"
+       //   onChange={handleChangePic}
+      //    imgExtension={[".jpg", ".gif", ".png"]}
+      //    maxFileSize={5242880}
+       //   fileSizeError="El archivo es muy grande"
+         // label="Limite imagen 5mb. Formato jpg,gif, png"
+        ///>
+        ""
       ) : (
         ""
       )}

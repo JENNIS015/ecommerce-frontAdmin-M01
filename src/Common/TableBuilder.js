@@ -11,10 +11,10 @@ import {
   Typography,
   makeStyles,
   Paper,
-} from "@material-ui/core";
+} from "@mui/material";
 
-import UnfoldMoreIcon from "@material-ui/icons/UnfoldMore";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   tableHeadRow: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: "solid",
     borderLeftWidth: "3px",
   },
- 
+
   headerCell: {
     padding: theme.spacing(0),
   },

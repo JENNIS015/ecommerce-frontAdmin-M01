@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import ErrorIcon from "@material-ui/icons/Error";
-import InfoIcon from "@material-ui/icons/Info";
-import { amber, green } from "@material-ui/core/colors";
-import SnackbarContent from "@material-ui/core/SnackbarContent";
-import WarningIcon from "@material-ui/icons/Warning";
-import { makeStyles } from "@material-ui/core/styles";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
+import InfoIcon from "@mui/icons-material/Info";
+import { amber, green } from "@mui/material/colors";
+import SnackbarContent from "@mui/material/SnackbarContent";
+import WarningIcon from "@mui/icons-material/Warning";
+import { makeStyles } from "@mui/material/styles";
 
 const variantIcon = {
   success: CheckCircleIcon,

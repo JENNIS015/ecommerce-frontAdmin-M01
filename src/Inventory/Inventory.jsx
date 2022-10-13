@@ -5,7 +5,6 @@ import { fetchProducts, deleteProduct } from "../store/product";
 
 import {
   makeStyles,
-
   Typography,
   Modal,
   Backdrop,
@@ -17,7 +16,7 @@ import {
   TableCell,
   TableBody,
   Table,
-} from "@material-ui/core";
+} from "@mui/material";
 import CreateProduct from "./CreateProduct";
 import InventoryItem from "./InventoryItem";
 import EmptyInventory from "./EmptyInventory";
@@ -26,7 +25,6 @@ import CreateProductForm from "./CreateProductForm";
 import PageTitle from "./../Common/PageTitle";
 
 const useStyles = makeStyles((theme) => ({
- 
   action: {
     marginLeft: "auto",
     marginTop: "0.8rem",
@@ -52,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "scroll",
     display: "flex",
   },
-  
+
   title: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
@@ -81,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Inventory = (props) => {
   const classes = useStyles();
- 
+
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState({
     nombre: "",

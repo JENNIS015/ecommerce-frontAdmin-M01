@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import AddIcon from "@material-ui/icons/Add";
+import Button from "@mui/material/Button";
+import { makeStyles } from "@mui/material/styles";
+import AddIcon from "@mui/icons-material/Add";
 
 const useStyles = makeStyles((theme) => ({
   button: {

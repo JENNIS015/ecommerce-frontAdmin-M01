@@ -1,14 +1,14 @@
-import {   useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import TableCell from "@material-ui/core/TableCell";
+import { useState } from "react";
+import { makeStyles } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import TableCell from "@mui/material/TableCell";
 import { IconDelete, IconEdit } from "../Common/Icons";
-import TableRow from "@material-ui/core/TableRow";
+import TableRow from "@mui/material/TableRow";
 import { urlApi } from "../utils/config";
-import Checkbox from "@material-ui/core/Checkbox";
+import Checkbox from "@mui/material/Checkbox";
 import { addFav } from "../store/product";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-import Favorite from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 const useStyles = makeStyles({
   title: {
     fontSize: 14,
@@ -55,7 +55,7 @@ export default function InventoryItem({
   return (
     <TableRow key={list.id}>
       <TableCell align="left">
-        <img src={urlApi + "/uploads/" + image}  alt={list.id} height={80} />
+        <img src={urlApi + "/uploads/" + image} alt={list.id} height={80} />
       </TableCell>
 
       <TableCell align="left">

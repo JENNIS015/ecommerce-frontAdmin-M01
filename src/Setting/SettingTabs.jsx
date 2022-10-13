@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core/styles";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+import { makeStyles } from "@mui/material/styles";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
 import TabButton from "./TabButton";
 import Account from "./View/Account";
@@ -60,16 +60,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function VerticalTabs(props) {
   const classes = useStyles();
-  const [value,setValue] = useState(0);
+  const [value, setValue] = useState(0);
 
-    function handleChange(event, newValue) {
-      setValue(newValue);
-    }
+  function handleChange(event, newValue) {
+    setValue(newValue);
+  }
   const state = useSelector((state) => state.auth);
- 
+
   const [data, setData] = useState({});
-
-
 
   useEffect(() => {
     const getData = async () => {
@@ -78,7 +76,6 @@ export default function VerticalTabs(props) {
     };
     getData();
   }, [state.user]);
-
 
   return (
     <div className={classes.root}>
@@ -104,11 +101,10 @@ export default function VerticalTabs(props) {
       <TabPanel value={value} index={0}>
         <Account data={data} setData={setData} />
       </TabPanel>
- 
+
       <TabPanel value={value} index={1}>
         <Notifications />
       </TabPanel>
-  
     </div>
   );
 }

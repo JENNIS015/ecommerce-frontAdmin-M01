@@ -1,11 +1,11 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import Box from "@material-ui/core/Box";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import Card from "@mui/material/Card";
+import Box from "@mui/material/Box";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import { makeStyles } from "@mui/material/styles";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -19,14 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
   content: {
     padding: "10px",
-
   },
   divider: {
     margin: `3px 0`,
   },
   title: {
     fontWeight: "500",
-    textTransform:"uppercase",
+    textTransform: "uppercase",
   },
 
   btn: {
@@ -43,7 +42,12 @@ export default function Cards({ item, deleteProp }) {
       <Card className={classes.card} key={item.id}>
         <CardContent className={classes.content}>
           <Box p={2} gap={2} className={classes.heading}>
-            <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="h2"
+              className={classes.title}
+            >
               {item.name + "" + item.lastName}
             </Typography>
             <Divider className={classes.divider} light />

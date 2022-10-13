@@ -1,27 +1,25 @@
-import {   useState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 import CreateProduct from "./CreateProductForm";
 import PageTitle from "../Common/PageTitle";
 
 const useStyles = makeStyles((theme) => ({
- 
   action: {
     marginLeft: "auto",
     marginTop: "0.8rem",
     marginRight: theme.spacing(2),
   },
-  
+
   toolbar: {
-   
     boxShadow: "0 0 11px #eaf0f6",
     display: "inline-block",
     marginBottom: theme.spacing(1),
     width: "100%",
-  } 
+  },
 }));
 
 const Inventory = () => {

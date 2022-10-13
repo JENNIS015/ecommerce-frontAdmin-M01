@@ -1,10 +1,9 @@
-import Chip from "@material-ui/core/Chip";
-import DoneIcon from "@material-ui/icons/Done";
-import CachedIcon from "@material-ui/icons/Cached";
-import ShippingIcon from "@material-ui/icons/LocalShipping";
-import PackingIcon from "@material-ui/icons/MoveToInbox";
+import Chip from "@mui/material/Chip";
+import DoneIcon from "@mui/icons-material/Done";
+import CachedIcon from "@mui/icons-material/Cached";
+import ShippingIcon from "@mui/icons-material/LocalShipping";
+import PackingIcon from "@mui/icons-material/MoveToInbox";
 export default function Fulfillment(props) {
-
   switch (props.orderStatus) {
     case "Procesando":
       return (

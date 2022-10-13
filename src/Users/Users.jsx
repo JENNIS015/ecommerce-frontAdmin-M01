@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import { getAllUser, deleteUser } from "../store/auth";
 import PageTitle from "./../Common/PageTitle";
 import Cards from "./Cards";
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cards: {
     height: "150px",
-  } 
+  },
 }));
 
 export default function Users() {
@@ -49,7 +49,7 @@ export default function Users() {
 
   return (
     <Container maxWidth="lg">
-      <PageTitle title="Usuarios Registrados"  />
+      <PageTitle title="Usuarios Registrados" />
       <div className={classes.root}>
         <Grid
           container

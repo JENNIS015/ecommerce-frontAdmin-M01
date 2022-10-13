@@ -1,9 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@mui/material/styles";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 import SettingTabs from "./SettingTabs";
 import PageTitle from "./../Common/PageTitle";
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -13,18 +12,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
   title: {
- 
     marginTop: theme.spacing(4),
   },
 }));
 
-export default function Settings( ) {
-
+export default function Settings() {
   const classes = useStyles();
 
   return (
     <Container maxWidth="lg">
-  
       <PageTitle title="Mi Cuenta" />
       <Paper className={classes.paper}>
         <SettingTabs />

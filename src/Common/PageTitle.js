@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Typography } from "@material-ui/core";
+import { makeStyles, Box, Typography } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   container: {

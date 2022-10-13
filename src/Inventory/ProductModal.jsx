@@ -10,18 +10,18 @@ import {
   ImageList,
   ImageListItem,
   Grid,
-} from "@material-ui/core";
+} from "@mui/material";
 import { deletePic } from "../store/product";
 import FieldRow from "../Common/FieldRow.js";
 import FieldModal from "../Common/FieldModalProduct";
 import UploadModal from "./../Common/UploadModal";
- 
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(1),
     minWidth: "55vw",
   },
- 
+
   button: {
     boxShadow: "none",
   },
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
- 
+
   image: {
     width: "5vw",
     boxShadow: "0 0 1px 0 rgba(0,0,0,.22)",
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
- 
+
   btnDelete: {
     backgroundColor: "#9d3030",
     zIndex: 1,
@@ -89,9 +89,7 @@ export default function ProductModal(props) {
       foto: filter,
     });
   };
-  useEffect(() => {
- 
-  }, [deletePic]);
+  useEffect(() => {}, [deletePic]);
   return (
     <Container className={classes.container}>
       <Typography variant="h4" className={classes.title}>

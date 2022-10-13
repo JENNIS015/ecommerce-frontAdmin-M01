@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchOrders } from "../store/product";
 import Loading from "../Loading/Loading";
-import { Container, Box } from "@material-ui/core/";
+import { Container, Box } from "@mui/material/";
 
 import OrdersTable from "./OrdersTable";
 import PageTitle from "./../Common/PageTitle";

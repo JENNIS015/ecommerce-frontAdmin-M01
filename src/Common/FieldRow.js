@@ -1,8 +1,8 @@
 import React from "react";
 import clsx from "clsx";
-import { Grid, Typography, Divider, Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import Edit from "@material-ui/icons/KeyboardArrowRight";
+import { Grid, Typography, Divider, Box } from "@mui/material";
+import { makeStyles } from "@mui/material/styles";
+import Edit from "@mui/icons-material/KeyboardArrowRight";
 
 const useStyles = makeStyles((theme) => ({
   label: {

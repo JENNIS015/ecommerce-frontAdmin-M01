@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
+import Checkbox from "@mui/material/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "10px",
   },
   row: {
- 
     paddingTop: theme.spacing(1),
     "&:hover": {
       backgroundColor: "#f5f5f5",
@@ -47,11 +46,10 @@ const useStyles = makeStyles((theme) => ({
 export default function Notifications() {
   const classes = useStyles();
 
-  const [state, setState] =  useState({
-    "newUserRegister": false,
-    "newOrden": false,
+  const [state, setState] = useState({
+    newUserRegister: false,
+    newOrden: false,
   });
- 
 
   const handleChange = (name) => (event) => {
     setState({ ...state, [name]: event.target.checked });
@@ -91,7 +89,7 @@ export default function Notifications() {
       </div>
 
       <div className={classes.row}>
-        {NotificationsCustom.map((item,i) => {
+        {NotificationsCustom.map((item, i) => {
           const value = item.value;
           return (
             <Grid container key={i}>
@@ -109,7 +107,7 @@ export default function Notifications() {
                 <Checkbox
                   className={classes.checkbox}
                   checked={state.value}
-                  onChange={handleChange( value )}
+                  onChange={handleChange(value)}
                   value={value}
                   color="primary"
                   inputProps={{

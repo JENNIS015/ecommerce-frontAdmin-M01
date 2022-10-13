@@ -2,24 +2,23 @@ import React from "react";
 import LoginCard from "./LoginCard";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Grid, Hidden, Container ,makeStyles} from "@material-ui/core";
+import { Grid, Hidden, Container, makeStyles } from "@mui/material";
 import { userSignInRequest } from "../store/auth";
- 
- const useStyles = makeStyles((theme) => ({
-   img: {
-     width: "100%",
-  
-   },
-   title: {
-     marginTop: theme.spacing(4),
-   },
-   cards: {
-     height: "150px",
-   },
- }));
+
+const useStyles = makeStyles((theme) => ({
+  img: {
+    width: "100%",
+  },
+  title: {
+    marginTop: theme.spacing(4),
+  },
+  cards: {
+    height: "150px",
+  },
+}));
 
 function Login(props) {
-   const classes = useStyles();
+  const classes = useStyles();
   const { userSignInRequest } = props;
 
   return (
