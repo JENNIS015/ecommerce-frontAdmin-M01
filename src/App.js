@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/styles";
 import PropTypes from "prop-types";
 import { connect, useSelector } from "react-redux";
 import { userSignOutRequest } from "./store/auth";
