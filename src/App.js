@@ -1,5 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { connect, useSelector } from "react-redux";
@@ -16,6 +15,7 @@ import { LayoutBar } from "./Layout/LayoutBar";
 import ForgotPassword from "./Login/ForgotPassword";
 import ChangePassword from "./Login/ChangePassword";
 import Category from "./Inventory/Category/Category";
+import PageNotFound from "./404/404";
 
 const theme = createTheme({
   palette: {
@@ -136,6 +136,8 @@ function App(props) {
               }
             />
           </Route>
+          <Route path="/404" element={<PageNotFound />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
