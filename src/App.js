@@ -1,5 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { ThemeProvider, createTheme } from "@mui/styles";
+ 
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { connect, useSelector } from "react-redux";
 import { userSignOutRequest } from "./store/auth";
@@ -24,7 +25,17 @@ const theme = createTheme({
       dark: blue[700],
     },
   },
-
+  typography: {
+    fontFamily: [
+      "Apercu",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
   overrides: {
     MuiOutlinedInput: {
       root: {
@@ -41,6 +52,7 @@ const theme = createTheme({
     },
   },
 });
+
 function App(props) {
   const auth = useSelector((state) => state.auth.isAuthenticated);
 

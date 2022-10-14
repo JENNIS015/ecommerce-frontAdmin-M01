@@ -2,13 +2,13 @@ import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import isEmpty from "lodash/isEmpty";
+import { createTheme } from "@mui/material/styles";
+
 import { useNavigate } from "react-router-dom";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/styles";
 import {
   Paper,
- 
   Container,
-  Grid,
   TextField,
   Button,
   Typography,
@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import { LockOutlined, PersonOutline } from "@mui/icons-material";
 import ErrorMessage from "./Error";
-
+const theme = createTheme();
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(1),
