@@ -1,8 +1,4 @@
-import {
-  Routes,
-  Route,
-  HashRouter as  BrowserRouter,
-} from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
  
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PropTypes from "prop-types";
@@ -69,7 +65,7 @@ function App(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path="/password" element={<ForgotPassword />} />
           <Route path="/reset/:id" element={<ChangePassword />} />
@@ -141,7 +137,7 @@ function App(props) {
             />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
