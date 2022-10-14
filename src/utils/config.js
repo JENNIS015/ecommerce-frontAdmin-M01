@@ -1,1 +1,1 @@
-export const urlApi = process.env.API_SERVER;
+export const urlApi = "https://backend-ecommerce-sitem01.herokuapp.com/";

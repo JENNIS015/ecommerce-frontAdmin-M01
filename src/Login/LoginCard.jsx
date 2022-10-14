@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import { LockOutlined, PersonOutline } from "@mui/icons-material";
 import ErrorMessage from "./Error";
-const theme = createTheme();
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(1),
