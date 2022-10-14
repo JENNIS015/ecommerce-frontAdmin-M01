@@ -36,7 +36,7 @@ function Login(props) {
         <Grid item sm={6} md={6}>
           <Hidden xsDown>
             <img
-              src="/img/login_image.jpg"
+              src="img/login_image.jpg"
               alt="inicio"
               className={classes.img}
             />
