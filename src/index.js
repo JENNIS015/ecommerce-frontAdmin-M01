@@ -6,6 +6,8 @@ import setAuthorizationToken from "./utils/setAuthorizationToken";
 import { createRoot } from "react-dom/client";
 import store from "./store/rootReducer";
 import reportWebVitals from "./reportWebVitals";
+import StyledEngineProvider from "@mui/material/StyledEngineProvider";
+
 import "./index.css";
 import App from "./App";
 import getTokenTimeRemaining from "./utils/getTokenTimeRemaing";
@@ -27,7 +29,9 @@ const root = createRoot(rootElement);
 
 root.render(
   <Provider store={store}>
-    <App />
+    <StyledEngineProvider injectFirst>
+      <App />
+    </StyledEngineProvider>
   </Provider>
 );
 
