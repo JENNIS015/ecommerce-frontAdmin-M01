@@ -1,1 +1,1 @@
-export const urlApi = "https://backend-ecommerce-sitem01.herokuapp.com/";
+export const urlApi = "https://backend-ecommerce-sitem01.herokuapp.com";
