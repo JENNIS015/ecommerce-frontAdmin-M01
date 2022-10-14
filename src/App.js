@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
- 
+
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PropTypes from "prop-types";
 import { connect, useSelector } from "react-redux";
@@ -65,7 +65,7 @@ function App(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter basename="/ecommerce-frontadmin-m01">
         <Routes>
           <Route exact path="/password" element={<ForgotPassword />} />
           <Route path="/reset/:id" element={<ChangePassword />} />
