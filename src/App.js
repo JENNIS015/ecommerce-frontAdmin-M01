@@ -65,7 +65,7 @@ function App(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter basename="/ecommerce-frontadmin-m01">
+      <BrowserRouter>
         <Routes>
           <Route exact path="/password" element={<ForgotPassword />} />
           <Route path="/reset/:id" element={<ChangePassword />} />

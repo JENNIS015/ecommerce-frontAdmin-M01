@@ -1,0 +1,16 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.text404 {
+  display: initial;
+  font-size: 6rem;
+  border-right: 8px solid #000;
+  padding-right: 1rem;
+}
+.textnot {
+  padding-left: 1rem;
+  font-size: 2rem;
+}
