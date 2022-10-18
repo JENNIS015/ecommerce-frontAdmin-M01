@@ -12,9 +12,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
- 
 } from "@mui/material";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     boxShadbow: "0 0 11px #eaf0f6",

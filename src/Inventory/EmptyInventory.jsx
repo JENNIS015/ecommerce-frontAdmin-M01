@@ -1,5 +1,5 @@
 import React from "react";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import { Box, Typography, Container } from "@mui/material";
 import Construction from "../Common/img/construction.png";
 

@@ -10,10 +10,9 @@ import {
   Button,
   Paper,
   Tabs,
- 
   Tab,
 } from "@mui/material";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 const useStyles = makeStyles({
   paper: {
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",

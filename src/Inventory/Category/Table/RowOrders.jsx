@@ -9,7 +9,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import { deleteCategory } from "../../../store/product";
 
 const useStyles = makeStyles((theme) => ({

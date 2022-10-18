@@ -6,7 +6,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import { amber, green } from "@mui/material/colors";
 import SnackbarContent from "@mui/material/SnackbarContent";
 import WarningIcon from "@mui/icons-material/Warning";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 
 const variantIcon = {
   success: CheckCircleIcon,

@@ -1,5 +1,5 @@
 import { React, useState, Fragment } from "react";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import Loading from "./../../Common/Loading";

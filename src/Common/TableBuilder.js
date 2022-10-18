@@ -9,10 +9,9 @@ import {
   Box,
   IconButton,
   Typography,
- 
   Paper,
 } from "@mui/material";
- import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 

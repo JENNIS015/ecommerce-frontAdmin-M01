@@ -1,6 +1,6 @@
 import React from "react";
-import {   Box, Typography } from "@mui/material";
- import { makeStyles } from "@mui/styles";
+import { Box, Typography } from "@mui/material";
+import { makeStyles } from "@mui/material/styles";
 const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: theme.spacing(3),

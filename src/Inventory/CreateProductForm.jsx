@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@mui/material/styles";
 import {
   Container,
   Box,
