@@ -1,42 +1,48 @@
 import { useEffect, useState } from "react";
 import { Box, Typography, Grid } from "@mui/material";
+import ImageUpload from "../../Common/ImageUpload";
 
 export default function Media({ formData, setFormData }) {
-  const [selectedImages, setSelectedImages] = useState([]);
+  // const [selectedImages, setSelectedImages] = useState([]);
   const [images, setImages] = useState([]);
 
   console.log(formData);
-  useEffect(() => {
-    setFormData({
-      ...formData,
-      foto: images,
-    });
-  }, [images]);
+  useEffect(
+    () => {
+      setFormData({
+        ...formData,
+        foto: images,
+      });
+    },
+    // eslint-disable-next-line
+    [images]
+  );
 
-  const onSelectFile = (event) => {
-    const selectedFiles = event.target.files;
+  // const onSelectFile = (event) => {
+  //   const selectedFiles = event.target.files;
 
-    const selectedFilesArray = Array.from(selectedFiles);
-    const imagesArray = selectedFilesArray.map((file) => {
-      return [URL.createObjectURL(file), file];
-    });
+  //   const selectedFilesArray = Array.from(selectedFiles);
+  //   const imagesArray = selectedFilesArray.map((file) => {
+  //     return [URL.createObjectURL(file), file];
+  //   });
 
-    console.log(imagesArray);
-    setSelectedImages((previousImages) => previousImages.concat(imagesArray));
-    setImages((previousImages) => previousImages.concat(selectedFilesArray));
-    // FOR BUG IN CHROME
-    event.target.value = "";
-  };
+  //   console.log(imagesArray);
+  //   setSelectedImages((previousImages) => previousImages.concat(imagesArray));
+  //   setImages((previousImages) => previousImages.concat(selectedFilesArray));
+  //   // FOR BUG IN CHROME
+  //   event.target.value = "";
+  // };
 
-  function deleteHandler(image) {
-    setSelectedImages(selectedImages.filter((e) => e !== image));
-    const index = images.findIndex((x) => x.name === image.name);
+  // function deleteHandler(image) {
+  //   setSelectedImages(selectedImages.filter((e) => e !== image));
+  //   const index = images.findIndex((x) => x.name === image.name);
 
-    setImages(images.splice(index, 1));
-    URL.revokeObjectURL(image);
-  }
+  //   setImages(images.splice(index, 1));
+  //   URL.revokeObjectURL(image);
+  // }
 
   return (
+
     <Grid container spacing={1}>
       <Grid item xs={4}>
         <Box>
@@ -52,7 +58,10 @@ export default function Media({ formData, setFormData }) {
       <Grid container item xs={8} spacing={2}>
         <Grid item xs={12}>
           <Typography variant="subtitle1">Agrega hasta 10 imagenes</Typography>
+         
+          <ImageUpload onChange={setImages} />
 
+          {/* 
           <input
             type="file"
             name="images"
@@ -87,7 +96,7 @@ export default function Media({ formData, setFormData }) {
                   </div>
                 );
               })}
-          </div>
+          </div> */}
         </Grid>
       </Grid>
     </Grid>

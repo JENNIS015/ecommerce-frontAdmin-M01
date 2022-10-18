@@ -45,7 +45,7 @@ export default function Users() {
       );
     };
     getData();
-  }, []);
+  }, [stateEmail]);
 
   return (
     <Container maxWidth="lg">

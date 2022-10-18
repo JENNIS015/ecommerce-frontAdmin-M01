@@ -87,7 +87,8 @@ function ChangePassword(props) {
         setCanShow(true);
       }
     }
-  }, [save]);
+  },// eslint-disable-next-line
+   [save]);
 
   return (
     <Container>

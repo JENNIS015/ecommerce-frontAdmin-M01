@@ -2,8 +2,6 @@ import { React, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import isEmpty from "lodash/isEmpty";
-import { createTheme } from "@mui/styles";
-
 import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import {
@@ -87,7 +85,8 @@ const Login = (props) => {
         });
       }
     }
-  }, [execute]);
+  }, // eslint-disable-next-line
+  [execute]);
 
   const [canShow, setCanShow] = useState(true);
 

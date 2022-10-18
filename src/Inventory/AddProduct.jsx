@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Inventory = () => {
   const classes = useStyles();
+  // eslint-disable-next-line
   const [createProductModal, setCreateProductModal] = useState(false);
 
   const openCreateNewProductModal = () => {

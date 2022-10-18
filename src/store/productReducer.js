@@ -9,8 +9,9 @@ const initialState = {
   error: null,
   products: [],
 };
-
+// eslint-disable-next-line
 export default (state = initialState, action = {}) => {
+  
   switch (action.type) {
     case FETCH_PRODUCTS_PENDING:
       return {

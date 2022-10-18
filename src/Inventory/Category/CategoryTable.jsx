@@ -12,7 +12,7 @@ import {
 import RowOrders from "./Table/RowOrders";
 
 export default function CategoryTable({ category, refresh }) {
-  const [formData, setFormData] = useState(category);
+ 
   const [categories, saveCategories] = useState();
 
   const save = async () => {
@@ -54,7 +54,7 @@ export default function CategoryTable({ category, refresh }) {
         <hr></hr>
 
         <Table>
-          <RowOrders data={formData} refresh={refresh} />
+          <RowOrders data={category} refresh={refresh} />
         </Table>
       </Paper>
       <div style={{ width: "100%", marginTop: "1em" }}></div>

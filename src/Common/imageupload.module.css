@@ -1,0 +1,12 @@
+.imageitem {
+  display: flex;
+  margin: 10px 0;
+}
+.imagewrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+button {
+  height: 40px;
+}

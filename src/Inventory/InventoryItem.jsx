@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import TableCell from "@mui/material/TableCell";
@@ -30,7 +29,7 @@ export default function InventoryItem({
   message,
 }) {
   const classes = useStyles();
-  const [list, setUpdateList] = useState(row);
+  const  list  =row;
 
   const openProductModal = () => {
     openModal(row);

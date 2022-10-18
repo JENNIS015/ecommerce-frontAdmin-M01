@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateProductForm({ onClose }) {
   const classes = useStyles();
   const getSteps = () => {
-    return ["Basico", "Precio", "Imagenes", "Envio"];
+    return ["Basico", "Precio", "Envio", "Imagenes"];
   };
 
   const [formData, setFormData] = useState({

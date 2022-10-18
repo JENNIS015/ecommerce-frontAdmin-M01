@@ -23,9 +23,7 @@ if (localStorage.token) {
     getTokenTimeRemaining(decodedToken);
   }
 }
-
  
-const root = document.getElementById("root");
  ReactDOM.render(
    <Provider store={store}>
      <StyledEngineProvider injectFirst>

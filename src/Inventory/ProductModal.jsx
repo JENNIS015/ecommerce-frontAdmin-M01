@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { urlApi } from "../utils/config";
 import { makeStyles } from "@mui/styles";
 import {
@@ -89,14 +89,14 @@ export default function ProductModal(props) {
       foto: filter,
     });
   };
-  useEffect(() => {}, [deletePic]);
+ 
   return (
     <Container className={classes.container}>
       <Typography variant="h4" className={classes.title}>
         {props.product.nombre}
       </Typography>
       <>
-        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+        <ImageList sx={{ width: 400, height: 250 }} cols={3} rowHeight={164}>
           {Array.isArray(props.product.foto)
             ? props.product.foto.map((pic) => (
                 <ImageListItem key={pic.filename}>

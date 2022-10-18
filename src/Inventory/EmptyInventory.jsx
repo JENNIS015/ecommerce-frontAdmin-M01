@@ -18,7 +18,7 @@ export default function EmptyInventory() {
   return (
     <Container>
       <Box display="flex" justifyContent="center">
-        <img className={classes.image} src={Construction} />
+        <img className={classes.image} alt="empty" src={Construction} />
       </Box>
       <Container>
         <Typography

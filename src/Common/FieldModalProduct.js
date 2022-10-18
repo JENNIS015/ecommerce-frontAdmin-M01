@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from "react";
-
 import { makeStyles } from "@mui/styles";
 import {
   TextField,
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { fetchCategory, updateProduct } from "../store/product";
+import ImageUpload from "./ImageUpload";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     borderRadius: "8px",
     minWidth: 550,
+    zIndex: 1,
   },
   label: {
     marginTop: 8,
@@ -87,10 +88,11 @@ export default function FieldModal(props) {
     props.variant === "select"
       ? fetchMyAPI()
       : document.getElementsByClassName("deleteImage");
-  }, []);
+  }, // eslint-disable-next-line
+  []);
 
-  return (
-    <Container sx={classes.paper}>
+  return (loading===false?
+    <Container className={classes.paper}>
       <Box display="flex" justifyContent="flex-start">
         <IconButton
           aria-label="delete"
@@ -155,18 +157,7 @@ export default function FieldModal(props) {
           ))}
         </Select>
       ) : props.variant === "pic" ? (
-        // <ImageUploader
-        //   withIcon={false}
-        //   withPreview={true}
-        //   className={classes.image}
-        //   buttonText="Sube imagenes"
-        //   onChange={handleChangePic}
-        //   imgExtension={[".jpg", ".gif", ".png"]}
-        //   maxFileSize={5242880}
-        //   fileSizeError="El archivo es muy grande"
-        //   label="Limite imagen 5mb. Formato jpg,gif, png"
-        // />
-        ""
+        <ImageUpload onChange={handleChangePic} />
       ) : (
         ""
       )}
@@ -203,6 +194,6 @@ export default function FieldModal(props) {
           </Button>
         )}
       </Box>
-    </Container>
+    </Container>:""
   );
 }

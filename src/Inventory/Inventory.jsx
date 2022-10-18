@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-
+    zIndex:1,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
     padding: theme.spacing(2, 4, 3),
     outline: "none",
@@ -102,7 +102,8 @@ const Inventory = (props) => {
   useEffect(() => {
     props.dispatch(fetchProducts());
     setLastUpdatedTime(`${new Date().toLocaleString()}`);
-  }, [product]);
+  }, // eslint-disable-next-line
+  [product]);
 
   const openCreateNewProductModal = () => {
     setCreateProductModal(true);

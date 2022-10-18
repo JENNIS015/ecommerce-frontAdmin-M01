@@ -75,20 +75,24 @@ function ForgotPassword(props) {
   };
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (!isEmpty(creds.email)) {
-      dispatch(resetPassword(creds.email)).then(
-        () => (setSubmit(false), setCanShow(true))
-      );
-    } else {
-      setSubmit(false);
-      if (isEmpty(creds.email)) {
-        setErrors({
-          email: true,
-        });
+  useEffect(
+    () => {
+      if (!isEmpty(creds.email)) {
+        dispatch(resetPassword(creds.email)).then(() =>
+          setSubmit(false).then(() => setCanShow(true))
+        );
+      } else {
+        setSubmit(false);
+        if (isEmpty(creds.email)) {
+          setErrors({
+            email: true,
+          });
+        }
       }
-    }
-  }, [save]);
+    },
+    // eslint-disable-next-line
+    [save]
+  );
 
   return (
     <Container style={{}}>
