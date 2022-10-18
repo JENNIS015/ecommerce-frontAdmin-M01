@@ -90,7 +90,7 @@ export default function FieldModal(props) {
   }, []);
 
   return (
-    <Container className={classes.paper}>
+    <Container sx={classes.paper}>
       <Box display="flex" justifyContent="flex-start">
         <IconButton
           aria-label="delete"

@@ -2,8 +2,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import { setCurrentUser } from "./store/auth";
 import setAuthorizationToken from "./utils/setAuthorizationToken";
- import jwtDecode from "jwt-decode";
-import { createRoot } from "react-dom/client";
+import jwtDecode from "jwt-decode";
+import ReactDOM from "react-dom";
 import store from "./store/rootReducer";
 import reportWebVitals from "./reportWebVitals";
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
@@ -24,15 +24,15 @@ if (localStorage.token) {
   }
 }
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
-
-root.render(
-  <Provider store={store}>
-    <StyledEngineProvider injectFirst>
-      <App />
-    </StyledEngineProvider>
-  </Provider>
-);
+ 
+const root = document.getElementById("root");
+ ReactDOM.render(
+   <Provider store={store}>
+     <StyledEngineProvider injectFirst>
+       <App />
+     </StyledEngineProvider>
+   </Provider>,
+   document.getElementById("root")
+ );
 
 reportWebVitals();
