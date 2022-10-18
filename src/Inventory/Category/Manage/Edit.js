@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { updateOrder, deleteOrderNumber } from "../../../store/product";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import {
   Typography,
   TextField,

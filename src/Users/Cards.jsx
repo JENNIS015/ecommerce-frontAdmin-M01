@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   card: {

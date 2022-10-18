@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Grid, Hidden, Container } from "@mui/material";
 import { userSignInRequest } from "../store/auth";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles((theme) => ({
   img: {
     width: "100%",

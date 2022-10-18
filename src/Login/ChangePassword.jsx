@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { verifyToken } from "../store/auth";
 import ErrorMessage from "./Error";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import {
   Paper,
   Grid,

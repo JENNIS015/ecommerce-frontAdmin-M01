@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { Grid, Typography, Divider, Box } from "@mui/material";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import Edit from "@mui/icons-material/KeyboardArrowRight";
 
 const useStyles = makeStyles((theme) => ({

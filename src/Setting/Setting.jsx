@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import SettingTabs from "./SettingTabs";
