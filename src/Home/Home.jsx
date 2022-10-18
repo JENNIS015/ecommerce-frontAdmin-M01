@@ -38,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     alignItems: "flex-end",
     marginTop: "20px",
+    "&:hover": {
+      background: "#505050",
+    },
   },
 }));
 

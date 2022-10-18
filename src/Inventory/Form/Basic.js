@@ -127,7 +127,6 @@ export default function Basics({ formData, setFormData }) {
                     });
                   }}
                   value={formData.categoria}
-                  labelWidth={0}
                   inputProps={{
                     name: "category",
                     id: "outlined-category-simple",

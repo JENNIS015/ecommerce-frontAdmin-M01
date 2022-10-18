@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import ImageUploader from "react-images-upload";
+ 
  import { makeStyles } from "@mui/styles";
 import {
  
@@ -143,7 +143,6 @@ export default function FieldModal(props) {
         <Select
           onChange={handleChange}
           value={value}
-          labelWidth={0}
           inputProps={{
             name: "category",
             id: "outlined-category-simple",
@@ -157,17 +156,18 @@ export default function FieldModal(props) {
           ))}
         </Select>
       ) : props.variant === "pic" ? (
-        <ImageUploader
-          withIcon={false}
-          withPreview={true}
-          className={classes.image}
-          buttonText="Sube imagenes"
-          onChange={handleChangePic}
-          imgExtension={[".jpg", ".gif", ".png"]}
-          maxFileSize={5242880}
-          fileSizeError="El archivo es muy grande"
-          label="Limite imagen 5mb. Formato jpg,gif, png"
-        />
+        // <ImageUploader
+        //   withIcon={false}
+        //   withPreview={true}
+        //   className={classes.image}
+        //   buttonText="Sube imagenes"
+        //   onChange={handleChangePic}
+        //   imgExtension={[".jpg", ".gif", ".png"]}
+        //   maxFileSize={5242880}
+        //   fileSizeError="El archivo es muy grande"
+        //   label="Limite imagen 5mb. Formato jpg,gif, png"
+        // />
+        ""
       ) : (
         ""
       )}

@@ -48,10 +48,11 @@ export default function Price({ formData, setFormData }) {
             fullWidth
           />
         </Grid>
+
         <Grid item xs={12}>
+          <p>Duración oferta</p>
           <TextField
             id="datetime-local"
-            label="Fecha"
             type="datetime-local"
             onChange={(e) => {
               setFormData({
