@@ -1,4 +1,4 @@
-import { Fragment, React, useState } from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { userSignOutRequest } from "../store/auth";
 import {
@@ -8,11 +8,19 @@ import {
   Typography,
   Box,
   Button,
-  Paper,
-  Tabs,
-  Tab,
+  Menu,
+  MenuItem,
+  AppBar,
+  Tooltip,
+  Avatar,
+  Toolbar,
+  Container,
+  IconButton,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import AdbIcon from "@mui/icons-material/Adb";
 import { makeStyles } from "@mui/styles";
+import { url } from "./url";
 const useStyles = makeStyles({
   paper: {
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
@@ -22,6 +30,7 @@ const useStyles = makeStyles({
     background: "white",
     zIndex: "1",
   },
+
   modal: {
     display: "flex",
     alignItems: "center",
@@ -40,11 +49,6 @@ const useStyles = makeStyles({
     padding: "2px 0px 0px 5px",
     overflow: "hidden",
     backgroundColor: "#000",
-  },
-  tab: {
-    textTransform: "uppercase",
-    color: "#fff",
-    fontSize: "0.85rem",
   },
 });
 function NavBar() {
@@ -65,65 +69,155 @@ function NavBar() {
     handleLogoutClose();
     window.location.reload();
   };
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   return (
-    <Fragment>
-      <Paper className={classes.root}>
-        <Tabs
-          value={window.location.pathname}
-          centered
-          indicatorColor="primary"
-          textColor="primary"
-        >
-          <Tab
-            label="Dashboards"
-            value="/"
-            component={Link}
-            to="/"
-            disableRipple
-            className={classes.tab}
-          />
+    <>
+      <AppBar sx={{ backgroundColor: "#525252" }} position="static">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                color: "white",
+                letterSpacing: ".3rem",
+                textDecoration: "none",
+              }}
+            >
+              MARKET BA
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                {url.map((page) => (
+                  <MenuItem key={page.to} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.label}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              LOGO
+            </Typography>
+            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+              {url.map((page) => (
+                <Button
+                  key={page.to}
+                  component={Link}
+                  to={page.to}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.label}
+                </Button>
+              ))}
+            </Box>
 
-          <Tab
-            label="Usuarios"
-            value="/users"
-            component={Link}
-            to="/users"
-            disableRipple
-            className={classes.tab}
-          />
-          <Tab
-            label="Ordenes"
-            value="/orders"
-            component={Link}
-            to="/orders"
-            disableRipple
-            className={classes.tab}
-          />
-          <Tab
-            label="Productos"
-            value="/inventory"
-            component={Link}
-            to="/inventory"
-            disableRipple
-            className={classes.tab}
-          />
-          <Tab
-            label="Mi Cuenta"
-            value="/setting"
-            component={Link}
-            to="/setting"
-            disableRipple
-            className={classes.tab}
-          />
-          <Tab
-            label="Cerrar Sesion"
-            onClick={handleLogoutOpen}
-            className={classes.tab}
-            //  to={handleLogoutOpen}
-          />
-        </Tabs>
-      </Paper>
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem
+                  key="account"
+                  component={Link}
+                  to={"/setting"}
+                  onClick={handleCloseUserMenu}
+                >
+                  <Typography textAlign="center">Mi Cuenta</Typography>
+                </MenuItem>
+                <MenuItem key="closeSession" onClick={handleLogoutOpen}>
+                  <Typography textAlign="center">Cerrar Sesión</Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -165,7 +259,7 @@ function NavBar() {
           </div>
         </Fade>
       </Modal>
-    </Fragment>
+    </>
   );
 }
 

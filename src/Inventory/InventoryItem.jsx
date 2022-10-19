@@ -12,9 +12,12 @@ const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
+  tableCell:{
+    padding:"0px"
+  },
   buttons: {
-    width: "100px",
-    display: "flex",
+    width: "200px",
+    display: "table-cell",
   },
   fav: {
     color: "#de2c2c",
@@ -53,8 +56,8 @@ export default function InventoryItem({
 
   return (
     <TableRow key={list.id}>
-      <TableCell align="left">
-        <img src={urlApi + "/uploads/" + image} alt={list.id} height={80} />
+      <TableCell className={classes.tableCell} align="left">
+        <img src={urlApi + "/uploads/" + image} alt={list.id} height={60} />
       </TableCell>
 
       <TableCell align="left">

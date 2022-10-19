@@ -32,6 +32,7 @@ export function fetchProducts() {
       dispatch(fetchProductsPending());
       const res = await axios.get(`${urlApi}/api/productos`, {
         withCredentials: true,
+        credentials: "include",
       });
       if (res.data && res.status === 200) {
         dispatch(fetchProductsSuccess(res.data.product));
@@ -48,8 +49,9 @@ export async function saveProduct(formData, setFormData, handleReset) {
     method: "post",
     url: `${urlApi}/api/productos`,
     data: formData,
-    headers: { "content-type": "multipart/form-data" },
+    contentType: "application/json",
     withCredentials: true,
+    credentials: "include",
   })
     .then(function (response) {})
     .catch(function (response) {
@@ -81,14 +83,13 @@ export async function saveCategory(categories, saveCategories) {
     url: `${urlApi}/api/categorias`,
     data: categories,
     withCredentials: true,
+    credentials: "include",
   })
     .then(function (response) {})
     .catch(function (response) {
-
       // console.log(response);
     })
     .finally(() => {
- 
       saveCategories({
         nombre: "",
       });
@@ -100,6 +101,7 @@ export async function fetchCategory() {
     method: "get",
     url: `${urlApi}/api/categorias`,
     withCredentials: true,
+    credentials: "include",
   });
 }
 
@@ -109,7 +111,8 @@ export async function deleteCategory(categoryID) {
     method: "delete",
     url: `${urlApi}/api/categorias/${categoryID}`,
     withCredentials: true,
-  })
+    credentials: "include",
+  });
 }
 export async function deleteProduct(productID) {
  
@@ -117,7 +120,8 @@ export async function deleteProduct(productID) {
     method: "delete",
     url: `${urlApi}/api/productos/${productID}`,
     withCredentials: true,
-  })
+    credentials: "include",
+  });
   
 }
 export async function addFav(productID, check) {
@@ -125,8 +129,9 @@ export async function addFav(productID, check) {
   return await axios({
     method: "put",
     url: `${urlApi}/api/productos/${productID}`,
-    data: { "destacado": check },
+    data: { destacado: check },
     withCredentials: true,
+    credentials: "include",
     headers: { "content-type": "multipart/form-data" },
   });
 }
@@ -137,8 +142,9 @@ export async function updateProduct(productID, dataObj) {
     url: `${urlApi}/api/productos/${productID}`,
     data: dataObj,
     withCredentials: true,
+    credentials: "include",
     headers: { "content-type": "multipart/form-data" },
-  })
+  });
     
 }
 
@@ -148,6 +154,7 @@ export async function deletePic(productID, dataObj) {
     url: `${urlApi}/api/productos/imagen/${productID}`,
     data: dataObj,
     withCredentials: true,
+    credentials: "include",
   })
     .then(function (response) {})
     .catch(function (response) {
@@ -161,6 +168,7 @@ export async function fetchOrders() {
     method: "get",
     url: `${urlApi}/api/pedido`,
     withCredentials: true,
+    credentials: "include",
   });
 }
 
@@ -170,6 +178,7 @@ export async function updateOrder(formData) {
     url: `${urlApi}/api/pedido/${formData._id}`,
     data: formData,
     withCredentials: true,
+    credentials: "include",
   });
 }
 
@@ -178,5 +187,6 @@ export async function deleteOrderNumber(number) {
     method: "delete",
     url: `${urlApi}/api/pedido/${number}`,
     withCredentials: true,
+    credentials: "include",
   });
 }

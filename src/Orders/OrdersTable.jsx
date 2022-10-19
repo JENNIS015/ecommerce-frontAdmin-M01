@@ -6,6 +6,7 @@ import {
   Modal,
   Backdrop,
   Fade,
+  TableContainer,
   Table,
 } from "@mui/material";
 import RowOrders from "./Table/RowOrders";
@@ -90,25 +91,31 @@ export default function OrdersTable({ orders, setChange, change }) {
     <Fragment>
       <Paper className={classes.toolbar}>
         {orders.length ? (
-          <Table className={classes.table}>
-            <RowOrders
-              sortData={sortData}
-              data={data}
-              sortById={sortById}
-              page={page}
-              rowsPerPage={rowsPerPage}
-              handleOpen={handleOpen}
-            />
+          <TableContainer>
+            <Table
+              stickyHeader
+              aria-label="sticky table"
+              className={classes.table}
+            >
+              <RowOrders
+                sortData={sortData}
+                data={data}
+                sortById={sortById}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                handleOpen={handleOpen}
+              />
 
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, 50, 100]}
-              count={orders.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Table>
+              <TablePagination
+                rowsPerPageOptions={[5, 10, 25, 50, 100]}
+                count={orders.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Table>{" "}
+          </TableContainer>
         ) : (
           <></>
         )}

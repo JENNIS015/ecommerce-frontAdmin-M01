@@ -10,6 +10,7 @@ import {
   Fade,
   Paper,
   Container,
+  TableContainer,
   TableRow,
   TableHead,
   TableCell,
@@ -41,13 +42,14 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    zIndex:1,
+    zIndex: 1,
     boxShadow: "0 20px 60px -2px rgba(27,33,58,.4)",
     padding: theme.spacing(2, 4, 3),
     outline: "none",
     borderRadius: "8px",
-    overflow: "scroll",
     display: "flex",
+    width: "100%",
+    overflow: "hidden",
   },
 
   title: {
@@ -70,6 +72,9 @@ const useStyles = makeStyles((theme) => ({
   },
   white: {
     backgroundColor: "rgb(9 89 169)",
+  },
+  tableHead:{
+    padding:"3px"
   },
   red: {
     backgroundColor: "rgb(9 89 169)",
@@ -152,9 +157,14 @@ const Inventory = (props) => {
         {props.products.length === 0 || props.products.length === null ? (
           <EmptyInventory />
         ) : (
-          <Fragment>
+          
             <Paper className={classes.root}>
-              <Table className={classes.table}>
+               <TableContainer> 
+              <Table
+                stickyHeader
+                aria-label="sticky table"
+                className={classes.table}
+              >
                 <TableHead className={classes.tableHeadRow}>
                   <TableRow>
                     {table.map((item) => (
@@ -183,8 +193,9 @@ const Inventory = (props) => {
                   ))}
                 </TableBody>
               </Table>
+               </TableContainer>
             </Paper>
-          </Fragment>
+       
         )}
       </Container>
 
