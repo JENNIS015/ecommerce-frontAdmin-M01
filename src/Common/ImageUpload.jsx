@@ -6,8 +6,7 @@ function ImageUpload(props) {
   const [images, setImages] = useState([]);
   const maxNumber = 5;
   const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
+
     setImages(imageList);
     props.onChange(imageList)
   };

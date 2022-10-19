@@ -6,7 +6,6 @@ export default function Media({ formData, setFormData }) {
   // const [selectedImages, setSelectedImages] = useState([]);
   const [images, setImages] = useState([]);
 
-  console.log(formData);
   useEffect(
     () => {
       setFormData({
