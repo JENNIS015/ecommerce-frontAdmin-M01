@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     borderRadius: "8px",
     minWidth: 550,
-    zIndex: 1,
+    zIndex: 2,
   },
   label: {
     marginTop: 8,
@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function FieldModal(props) {
+ 
   const classes = useStyles();
   const [pics, setPics] = useState(props.products.foto);
   const [value, setValue] = useState(props.value);
@@ -91,7 +92,7 @@ export default function FieldModal(props) {
   }, // eslint-disable-next-line
   []);
 
-  return (loading===false?
+  return (loading===true?
     <Container className={classes.paper}>
       <Box display="flex" justifyContent="flex-start">
         <IconButton

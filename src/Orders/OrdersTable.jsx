@@ -1,7 +1,6 @@
 import { React, Fragment, useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import {
-  TableFooter,
   TablePagination,
   Paper,
   Modal,
@@ -18,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     outline: "none",
     borderRadius: "8px",
-    overflow: "scroll",
-    display: "flex",
+    zIndex: 2,
+    position: "relative",
   },
+
   toolbar: {
     boxShadow: "0 0 11px #eaf0f6",
     display: "inline-block",
@@ -89,16 +89,17 @@ export default function OrdersTable({ orders, setChange, change }) {
   return (
     <Fragment>
       <Paper className={classes.toolbar}>
-        <Table className={classes.table}>
-          <RowOrders
-            sortData={sortData}
-            data={data}
-            sortById={sortById}
-            page={page}
-            rowsPerPage={rowsPerPage}
-            handleOpen={handleOpen}
-          />
-          <TableFooter>
+        {orders.length ? (
+          <Table className={classes.table}>
+            <RowOrders
+              sortData={sortData}
+              data={data}
+              sortById={sortById}
+              page={page}
+              rowsPerPage={rowsPerPage}
+              handleOpen={handleOpen}
+            />
+
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, 50, 100]}
               count={orders.length}
@@ -107,8 +108,10 @@ export default function OrdersTable({ orders, setChange, change }) {
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
-          </TableFooter>
-        </Table>
+          </Table>
+        ) : (
+          <></>
+        )}
         <Modal
           disableAutoFocus={true}
           className={classes.modal}

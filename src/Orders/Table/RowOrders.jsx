@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import clsx from "clsx";
 import Chip from "@mui/material/Chip";
 import UnfoldMoreIcon from "@mui/icons-material/UnfoldMore";
@@ -90,7 +89,7 @@ function StatusChip(props) {
 function RowOrders(props) {
   const classes = useStyles();
   return (
-    <Fragment>
+    <>
       <TableHead>
         <TableRow className={classes.tableHeadRow}>
           <TableCell className={classes.tableHeadCell}>
@@ -176,7 +175,7 @@ function RowOrders(props) {
             ))
         )}
       </TableBody>
-    </Fragment>
+    </>
   );
 }
 

@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     marginBottom: theme.spacing(3),
   },
-  root: {
+  order: {
     padding: theme.spacing(4),
+    zIndex: 1,
   },
   title: {
     color: theme.palette.action.active,
@@ -73,7 +74,7 @@ export default function Edit({
   return (
     <Fragment>
       <Box>
-        <form className={classes.root}>
+        <form className={classes.order}>
           <Typography variant="h6" className={classes.subtitle} gutterBottom>
             Información de orden
           </Typography>

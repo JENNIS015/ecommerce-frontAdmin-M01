@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   btnDelete: {
     backgroundColor: "#9d3030",
     zIndex: 1,
+    color: "white"
   },
 }));
 

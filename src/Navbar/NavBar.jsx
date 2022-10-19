@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     outline: "none",
     borderRadius: "8px",
     background: "white",
+    zIndex: "1",
   },
   modal: {
     display: "flex",
@@ -35,8 +36,6 @@ const useStyles = makeStyles({
   },
   root: {
     flexGrow: 1,
-    zIndex: 3000,
-
     borderRadius: "0px",
     padding: "2px 0px 0px 5px",
     overflow: "hidden",

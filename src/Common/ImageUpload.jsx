@@ -41,7 +41,7 @@ function ImageUpload(props) {
               Subir Imagenes
             </button>
             &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
+            <button onClick={onImageRemoveAll}>Eliminar todas las imagenes</button>
             {imageList.map((image, index) => (
               <div key={index} className={styles.imageitem}>
                 <img src={image.data_url} alt="" width="100" />
