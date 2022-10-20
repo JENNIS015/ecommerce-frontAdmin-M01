@@ -92,7 +92,7 @@ export function userSignInRequest(userData) {
     try {
       const respuesta = await axios.post(`${urlApi}/signin`, userData, {
         withCredentials: true,
-    
+        credentials: "include",
       });
 
       
@@ -128,6 +128,7 @@ export function resetPassword(dataObj) {
       data: { email: dataObj },
       contentType: "application/json",
       withCredentials: true,
+      credentials: "include",
     })
       .then((res) => dispatch(setValidEmail()))
       .catch((error) => {
@@ -149,6 +150,7 @@ export function verifyToken(id, creds) {
       method: "get",
       url: `${urlApi}/reset/${id}`,
       withCredentials: true,
+      credentials: "include",
     })
       .then(
         async (res) =>
@@ -156,6 +158,7 @@ export function verifyToken(id, creds) {
             method: "post",
             withCredentials: true,
             url: `${urlApi}/reset/${id}`,
+            credentials: "include",
             data: { password: creds.password, confirm: creds.verify },
           }),
         dispatch(setNewPasword())
@@ -179,17 +182,19 @@ export async function updateUser(userId, dataObj) {
     url: `${urlApi}/profile/${userId}`,
     data: dataObj,
     withCredentials: true,
+    credentials: "include",
   })
     .then(function (response) {})
     .catch(function (response) {
       //handle error
-    //  console.log(response);
+      //  console.log(response);
     });
 }
 
 export const getUser = async (userId) => {
   let response = await axios.get(`${urlApi}/profile/${userId}`, {
     withCredentials: true,
+    credentials: "include",
   });
   return response.data.data;
 };
@@ -202,6 +207,7 @@ export const getAllUser = async () => {
 export const deleteUser = async (userId) => {
   let response = await axios.delete(`${urlApi}/user/${userId}`, {
     withCredentials: true,
+    credentials: "include",
   });
   return response;
 };

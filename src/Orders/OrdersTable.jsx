@@ -114,7 +114,7 @@ export default function OrdersTable({ orders, setChange, change }) {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
-            </Table>{" "}
+            </Table> 
           </TableContainer>
         ) : (
           <></>

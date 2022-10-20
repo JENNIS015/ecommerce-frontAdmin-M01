@@ -1,6 +1,6 @@
 import { useState, React, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
-
+import NotAdmin from "../403/NotAdmin";
 import { fetchOrders } from "../store/product";
 import Loading from "../Loading/Loading";
 import { Container, Box } from "@mui/material/";
@@ -14,7 +14,7 @@ const Orders = (props) => {
   const [orders, setOrder] = useState({});
 
   const [change, setChange] = useState(false);
-
+  const [err, setErr] = useState(false);
   useEffect(() => {
     async function fetchMyAPI() {
       setLoading(true);
@@ -26,6 +26,7 @@ const Orders = (props) => {
         setLoading(false);
       } catch {
         setLoading(false);
+        setErr(true)
       }
     }
     fetchMyAPI();
@@ -49,7 +50,7 @@ const Orders = (props) => {
     );
   };
 
-  return <Fragment>{loading ? <Loading /> : <OrdersMain />}</Fragment>;
+  return <Fragment>{loading ? <Loading /> : err===true? <NotAdmin/>:<OrdersMain />}</Fragment>;
 };
 
 function mapStateToProps(state) {
