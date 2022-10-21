@@ -50,9 +50,9 @@ export default function InventoryItem({
       addFav(id, check);
     }
   };
-  let image = !list.foto[0]
+  let image = !list.foto
     ? (list.foto = "/default.jpg")
-    : list.foto[0].filename;
+    : list.foto[0];
 
   return (
     <TableRow key={list.id}>

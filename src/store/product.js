@@ -49,7 +49,6 @@ export async function saveProduct(formData, setFormData, handleReset) {
     method: "post",
     url: `${urlApi}/api/productos`,
     data: formData,
-    contentType: "application/json",
     withCredentials: true,
     credentials: "include",
   })

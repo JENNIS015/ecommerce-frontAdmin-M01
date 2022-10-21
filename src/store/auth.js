@@ -87,7 +87,6 @@ export function setConnectionRefusedError() {
 }
 
 export function userSignInRequest(userData) {
-
   return async (dispatch) => {
     try {
       const respuesta = await axios.post(`${urlApi}/signin`, userData, {
@@ -95,9 +94,10 @@ export function userSignInRequest(userData) {
         credentials: "include",
       });
 
-      
+
       if (respuesta.status === 200) {
         const { token } = respuesta.data;
+
         localStorage.setItem("token", respuesta.data.token);
         setAuthToken(token);
         const decoded = jwt_decode(token);
@@ -115,7 +115,6 @@ export function userSignInRequest(userData) {
 export function userSignOutRequest() {
   localStorage.removeItem("token");
   return async (dispatch) => {
- 
     dispatch(setCurrentUser({ isAuthenticated: false, user: {}, error: {} }));
   };
 }

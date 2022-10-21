@@ -15,6 +15,7 @@ const Orders = (props) => {
 
   const [change, setChange] = useState(false);
   const [err, setErr] = useState(false);
+  console.log(err)
   useEffect(() => {
     async function fetchMyAPI() {
       setLoading(true);
@@ -25,7 +26,7 @@ const Orders = (props) => {
         setOrder(response.data);
         setLoading(false);
       } catch {
-        setLoading(false);
+ 
         setErr(true)
       }
     }
@@ -50,7 +51,7 @@ const Orders = (props) => {
     );
   };
 
-  return <Fragment>{loading ? <Loading /> : err===true? <NotAdmin/>:<OrdersMain />}</Fragment>;
+  return <Fragment>{loading ? <Loading /> : err? <NotAdmin/>:<OrdersMain />}</Fragment>;
 };
 
 function mapStateToProps(state) {
