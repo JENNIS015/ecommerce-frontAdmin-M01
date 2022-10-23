@@ -20,6 +20,7 @@ Desde el cual puede acceder a visualizar, editar y eliminar los distintos compon
 ## Productos
 Se permite gestionar las categorias y productos.
 Se pueden generar, editar y eliminar.
+Imagenes en CDN Cloudinary
 
 <img src="github/products.jpg" width="500px" alt="Gestión de productos"/>
 <img src="github/newProduct.jpg" width="500px" alt="gregar nuevo producto"/>
