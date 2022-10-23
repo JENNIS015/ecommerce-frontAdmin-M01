@@ -104,11 +104,13 @@ const Inventory = (props) => {
   const [createProductModal, setCreateProductModal] = useState(false);
   const [lastUpdatedTime, setLastUpdatedTime] = useState("N/A");
 
-  useEffect(() => {
-    props.dispatch(fetchProducts());
-    setLastUpdatedTime(`${new Date().toLocaleString()}`);
-  }, // eslint-disable-next-line
-  [product]);
+  useEffect(
+    () => {
+      props.dispatch(fetchProducts());
+      setLastUpdatedTime(`${new Date().toLocaleString()}`);
+    }, // eslint-disable-next-line
+    [product, createProductModal]
+  );
 
   const openCreateNewProductModal = () => {
     setCreateProductModal(true);
@@ -125,9 +127,9 @@ const Inventory = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const [message, setMessage] = useState("");
 
-  const classDelete = message !== "" ? "classes.red" : "classes.white";
+
+ 
   const table = [
     "Foto",
     "Nombre del producto",
@@ -186,9 +188,7 @@ const Inventory = (props) => {
                       key={product.id}
                       openModal={handleOpen}
                       deleteProd={deleteProduct}
-                      makeStyles={classDelete}
-                      setMessage={setMessage}
-                      message={message}
+       
                     />
                   ))}
                 </TableBody>

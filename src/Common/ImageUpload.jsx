@@ -1,12 +1,12 @@
 import { useState } from "react";
 import ImageUploading from "react-images-uploading";
 import styles from "./imageupload.module.css";
+import { Grid } from "@mui/material";
 
 function ImageUpload(props) {
   const [images, setImages] = useState([]);
-  const maxNumber =10;
+  const maxNumber = 10;
   const onChange = (imageList, addUpdateIndex) => {
-    
     setImages(imageList);
     props.onChange(imageList);
   };
@@ -42,15 +42,23 @@ function ImageUpload(props) {
           <button onClick={onImageRemoveAll}>
             Eliminar todas las imagenes
           </button>
-          {imageList.map((image, index) => (
-            <div key={index} className={styles.imageitem}>
-              <img src={image.data_url} alt="" width="100" />
-              <div className={styles.imagewrapper}>
-                <button onClick={() => onImageUpdate(index)}>Actualizar</button>
-                <button onClick={() => onImageRemove(index)}>Eliminar</button>
-              </div>
-            </div>
-          ))}
+          <Grid container spacing={1}>
+            {imageList.map((image, index) => (
+              <Grid item xs={12} sm={6}>
+                <div key={index} className={styles.imageitem}>
+                  <img src={image.data_url} alt="" width="100" />
+                  <div className={styles.imagewrapper}>
+                    <button onClick={() => onImageUpdate(index)}>
+                      Actualizar
+                    </button>
+                    <button onClick={() => onImageRemove(index)}>
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+              </Grid>
+            ))}
+          </Grid>
         </div>
       )}
     </ImageUploading>

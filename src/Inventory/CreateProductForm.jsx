@@ -76,6 +76,7 @@ export default function CreateProductForm({ onClose }) {
   }
 
   const [activeStep, setActiveStep] = useState(0);
+  const [send, setSend] = useState(false);
   const steps = getSteps();
 
   const handleNext = () => {
@@ -91,6 +92,7 @@ export default function CreateProductForm({ onClose }) {
 
   const save = async () => {
     await saveProduct(formData, setFormData, handleReset);
+    setSend(true);
   };
 
   return (
@@ -136,7 +138,7 @@ export default function CreateProductForm({ onClose }) {
                 onClick={save}
                 type="submit"
               >
-                Finalizar
+                {!send === true ? "Enviar" : "Enviando..."}
               </Input>
             ) : (
               <Button

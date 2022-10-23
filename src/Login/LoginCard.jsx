@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import {
   Paper,
+  Box,
   Container,
   TextField,
   Button,
@@ -68,25 +69,27 @@ const Login = (props) => {
     let path = `password`;
     navigate(path);
   };
-  useEffect(() => {
-    if (!isEmpty(creds.email) && !isEmpty(creds.password)) {
-      props.userSignInRequest(creds);
-    } else {
-      setSubmit(false);
-      if (isEmpty(creds.email)) {
-        setErrors({
-          email: true,
-        });
+  useEffect(
+    () => {
+      if (!isEmpty(creds.email) && !isEmpty(creds.password)) {
+        props.userSignInRequest(creds);
+      } else {
+        setSubmit(false);
+        if (isEmpty(creds.email)) {
+          setErrors({
+            email: true,
+          });
+        }
+        if (isEmpty(creds.password)) {
+          setErrors({
+            ...errors,
+            password: true,
+          });
+        }
       }
-      if (isEmpty(creds.password)) {
-        setErrors({
-          ...errors,
-          password: true,
-        });
-      }
-    }
-  }, // eslint-disable-next-line
-  [execute]);
+    }, // eslint-disable-next-line
+    [execute]
+  );
 
   const [canShow, setCanShow] = useState(true);
 
@@ -98,86 +101,88 @@ const Login = (props) => {
   return (
     <Container maxWidth="sm">
       <Paper className={classes.paper}>
-        <div className={classes.margin}>
-          <Typography variant="h4" className={classes.title} gutterBottom>
-            ¡Bienvenido de nuevo!
-          </Typography>
-          <TextField
-            className={classes.textfield}
-            id="email"
-            label="Correo Electrónico"
-            type="email"
-            variant="outlined"
-            value={creds.email}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <PersonOutline />
-                </InputAdornment>
-              ),
-            }}
-            onChange={(e) => setCreds({ ...creds, email: e.target.value })}
-            disabled={submit}
-            error={errors.email}
-            fullWidth
-            required
-          />
-          <TextField
-            className={classes.password}
-            id="password"
-            label="Contraseña"
-            type="password"
-            variant="outlined"
-            value={creds.password}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <LockOutlined />
-                </InputAdornment>
-              ),
-            }}
-            onChange={(e) => setCreds({ ...creds, password: e.target.value })}
-            disabled={submit}
-            error={errors.password}
-            fullWidth
-            required
-          />
+        <Box noValidate autoComplete="off">
+          <div className={classes.margin}>
+            <Typography variant="h4" className={classes.title} gutterBottom>
+              ¡Bienvenido de nuevo!
+            </Typography>
+            <TextField
+              className={classes.textfield}
+              id="email"
+              label="Correo Electrónico"
+              type="email"
+              variant="outlined"
+              value={creds.email}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonOutline />
+                  </InputAdornment>
+                ),
+              }}
+              onChange={(e) => setCreds({ ...creds, email: e.target.value })}
+              disabled={submit}
+              error={errors.email}
+              fullWidth
+              required
+            />
+            <TextField
+              className={classes.password}
+              id="password"
+              label="Contraseña"
+              type="password"
+              variant="outlined"
+              value={creds.password}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOutlined />
+                  </InputAdornment>
+                ),
+              }}
+              onChange={(e) => setCreds({ ...creds, password: e.target.value })}
+              disabled={submit}
+              error={errors.password}
+              fullWidth
+              required
+            />
 
-          <Button
-            variant="contained"
-            className={classes.btn}
-            onClick={onSubmit}
-            disabled={submit}
-          >
-            {submit ? (
-              <CircularProgress style={{ color: "#fff" }} size={24} />
-            ) : (
-              <Typography>Ingresar</Typography>
-            )}
-          </Button>
-          <Button
-            disableFocusRipple
-            disableRipple
-            style={{ textTransform: "none" }}
-            variant="text"
-            disabled={submit}
-            onClick={changePath}
-          >
-            ¿Olvidaste la contraseña?
-          </Button>
-          <div style={{ width: "100%", height: "50px" }}>
-            {props.errorMessage.message ? (
-              canShow === true ? (
-                <ErrorMessage
-                  variant={props.errorMessage.variant}
-                  message={props.errorMessage.message.message}
-                />
+            <Button
+              variant="contained"
+              className={classes.btn}
+              onClick={onSubmit}
+              disabled={submit}
+            >
+              {submit ? (
+                <CircularProgress style={{ color: "#fff" }} size={24} />
               ) : (
-                <> </>
-              )
-            ) : null}
+                <Typography>Ingresar</Typography>
+              )}
+            </Button>
+            <Button
+              disableFocusRipple
+              disableRipple
+              style={{ textTransform: "none" }}
+              variant="text"
+              disabled={submit}
+              onClick={changePath}
+            >
+              ¿Olvidaste la contraseña?
+            </Button>
+            <div style={{ width: "100%", height: "50px" }}>
+              {props.errorMessage.message ? (
+                canShow === true ? (
+                  <ErrorMessage
+                    variant={props.errorMessage.variant}
+                    message={props.errorMessage.message.message}
+                  />
+                ) : (
+                  <> </>
+                )
+              ) : null}
+            </div>
           </div>
-        </div>
+        </Box>
       </Paper>
     </Container>
   );

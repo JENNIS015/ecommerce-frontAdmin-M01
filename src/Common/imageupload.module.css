@@ -1,7 +1,10 @@
 .imageitem {
   display: flex;
   margin: 10px 0;
+  height: 80px;
+  object-fit: scale-down;
 }
+
 .imagewrapper {
   display: flex;
   flex-direction: column;
@@ -9,4 +12,8 @@
 }
 button {
   height: 40px;
+}
+.list {
+  width: 100%;
+  display: flex;
 }

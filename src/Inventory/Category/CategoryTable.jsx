@@ -14,9 +14,10 @@ import RowOrders from "./Table/RowOrders";
 export default function CategoryTable({ category, refresh }) {
  
   const [categories, saveCategories] = useState();
-
+  const [send, setSend] = useState(false);
   const save = async () => {
     await saveCategory(categories, saveCategories).then(() => refresh());
+   setSend(true)
   };
 
   return (
@@ -48,7 +49,7 @@ export default function CategoryTable({ category, refresh }) {
             onClick={save}
             type="submit"
           >
-            Enviar
+            {!send===true ? "Enviar" : "Enviando..."}
           </Button>
         </Grid>
         <hr></hr>

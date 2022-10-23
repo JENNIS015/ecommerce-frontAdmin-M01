@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { urlApi } from "../utils/config";
 import { makeStyles } from "@mui/styles";
 import {
   Box,
@@ -15,7 +14,7 @@ import { deletePic } from "../store/product";
 import FieldRow from "../Common/FieldRow.js";
 import FieldModal from "../Common/FieldModalProduct";
 import UploadModal from "./../Common/UploadModal";
-
+import { cloudinary } from "../utils/config";
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(1),
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   btnDelete: {
     backgroundColor: "#9d3030",
     zIndex: 1,
-    color: "white"
+    color: "white",
   },
 }));
 
@@ -82,7 +81,7 @@ export default function ProductModal(props) {
 
   const deleteImage = (filename) => {
     let items = props.product.foto;
-    let filter = items.filter((obj) => obj.filename !== filename);
+    let filter = items.filter((obj) => obj !== filename);
 
     deletePic(props.product.id, { filename: filename, dataObj: filter });
     props.setProduct({
@@ -90,7 +89,7 @@ export default function ProductModal(props) {
       foto: filter,
     });
   };
- 
+
   return (
     <Container className={classes.container}>
       <Typography variant="h4" className={classes.title}>
@@ -100,21 +99,16 @@ export default function ProductModal(props) {
         <ImageList sx={{ width: 400, height: 250 }} cols={3} rowHeight={164}>
           {Array.isArray(props.product.foto)
             ? props.product.foto.map((pic) => (
-                <ImageListItem key={pic.filename}>
+                <ImageListItem key={pic}>
                   <Button
                     className={classes.btnDelete}
-                    onClick={() => deleteImage(pic.filename)}
+                    onClick={() => deleteImage(pic)}
                   >
                     Delete
                   </Button>
                   <img
                     alt={props.product.nombre}
-                    src={`${
-                      urlApi + "/uploads/" + pic.filename
-                    }?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${
-                      urlApi + "/uploads/" + pic.filename
-                    }?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    srcSet={`https://res.cloudinary.com/${cloudinary.id}/image/upload/${cloudinary.album}/${pic}.jpg`}
                     loading="lazy"
                   />
                 </ImageListItem>

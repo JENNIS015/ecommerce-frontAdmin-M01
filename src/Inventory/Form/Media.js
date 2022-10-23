@@ -11,11 +11,14 @@ export default function Media({ formData, setFormData }) {
     () => {
       const files = [];
       if (images.length) {
-        images[1].map((i) => files.push(i.path));
+        images.map((i) =>
+          files.push(new Date().toISOString().replace(/:/g, "-") + i.file.name)
+        );
       }
+      console.log(files);
       setFormData({
         ...formData,
-        foto: files,
+        images,
       });
     },
     // eslint-disable-next-line

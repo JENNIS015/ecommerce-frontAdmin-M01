@@ -49,9 +49,11 @@ export async function saveProduct(formData, setFormData, handleReset) {
     method: "post",
     url: `${urlApi}/api/productos`,
     data: formData,
+  headers: { "Content-Type": "multipart/form-data" },
     withCredentials: true,
     credentials: "include",
   })
+
     .then(function (response) {})
     .catch(function (response) {
       // console.log(response);

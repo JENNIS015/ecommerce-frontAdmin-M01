@@ -1,19 +1,20 @@
+import { useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Button from "@mui/material/Button";
 import TableCell from "@mui/material/TableCell";
 import { IconDelete, IconEdit } from "../Common/Icons";
 import TableRow from "@mui/material/TableRow";
-import { urlApi } from "../utils/config";
 import Checkbox from "@mui/material/Checkbox";
 import { addFav } from "../store/product";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import { cloudinary } from "../utils/config";
 const useStyles = makeStyles({
   title: {
     fontSize: 14,
   },
-  tableCell:{
-    padding:"0px"
+  tableCell: {
+    padding: "0px",
   },
   buttons: {
     width: "200px",
@@ -27,13 +28,11 @@ const useStyles = makeStyles({
 export default function InventoryItem({
   row,
   openModal,
-  setMessage,
   deleteProd,
-  message,
 }) {
   const classes = useStyles();
-  const  list  =row;
-
+  const list = row;
+  const [message, setMessage] = useState("");
   const openProductModal = () => {
     openModal(row);
   };
@@ -41,7 +40,7 @@ export default function InventoryItem({
   const deleteProductById = (id) => {
     if (id) {
       deleteProd(id);
-      setMessage(" - Eliminado");
+      setMessage(" Eliminado");
     }
   };
 
@@ -52,12 +51,12 @@ export default function InventoryItem({
   };
   let image = !list.foto
     ? (list.foto = "/default.jpg")
-    : list.foto[0];
+    : `https://res.cloudinary.com/${cloudinary.id}/image/upload/${cloudinary.album}/${list.foto[0]}.jpg`;
 
   return (
     <TableRow key={list.id}>
       <TableCell className={classes.tableCell} align="left">
-        <img src={urlApi + "/uploads/" + image} alt={list.id} height={60} />
+        <img src={image} alt={list.id} height={60} />
       </TableCell>
 
       <TableCell align="left">
